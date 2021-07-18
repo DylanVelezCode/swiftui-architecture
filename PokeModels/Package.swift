@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "PokeModels",
+    platforms: [.iOS(.v14)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
@@ -23,6 +24,7 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "PokeModelsTests",
-            dependencies: ["PokeModels"]),
+            dependencies: ["PokeModels"],
+            resources: [.process("Resources")]),
     ]
 )

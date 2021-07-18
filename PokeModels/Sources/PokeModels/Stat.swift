@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Stat: Codable {
+public struct Stat: Codable, Equatable {
     public let base: Int
     public let name: String
     
@@ -26,5 +26,10 @@ public struct Stat: Codable {
         
         name = try stat.decode(String.self, forKey: .name)
         base = try container.decode(Int.self, forKey: .base)
+    }
+    
+    public init(base: Int, name: String) {
+        self.base = base
+        self.name = name
     }
 }

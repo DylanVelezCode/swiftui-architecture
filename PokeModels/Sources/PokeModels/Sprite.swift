@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Sprite: Codable {
+public struct Sprite: Codable, Equatable {
     public let front: String
     
     private enum CodingKeys: String, CodingKey {

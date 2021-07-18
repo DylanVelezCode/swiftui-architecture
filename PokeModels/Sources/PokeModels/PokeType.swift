@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct PokeType: Codable {
+public struct PokeType: Codable, Equatable {
     public let name: String
     
     private enum OuterKeys: String, CodingKey {
@@ -22,5 +22,9 @@ public struct PokeType: Codable {
         let container = try decoder.container(keyedBy: OuterKeys.self)
         let type = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .type)
         name = try type.decode(String.self, forKey: .name)
+    }
+    
+    public init(name: String) {
+        self.name = name
     }
 }
