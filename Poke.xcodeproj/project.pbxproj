@@ -25,6 +25,7 @@
 		48BA87BF26A3BDEB00401B9B /* PokeModels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PokeModels; sourceTree = "<group>"; };
 		48BA87C026A3BE0D00401B9B /* PokeServices */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PokeServices; sourceTree = "<group>"; };
 		48BA87C326A3BE5D00401B9B /* PokeUI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PokeUI; sourceTree = "<group>"; };
+		48BA87CC26A3BF2C00401B9B /* PokeArch */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PokeArch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +45,7 @@
 		482AB72B26A3B9F9004EA115 = {
 			isa = PBXGroup;
 			children = (
+				48BA87CC26A3BF2C00401B9B /* PokeArch */,
 				48BA87C326A3BE5D00401B9B /* PokeUI */,
 				48BA87C026A3BE0D00401B9B /* PokeServices */,
 				48BA87BF26A3BDEB00401B9B /* PokeModels */,
