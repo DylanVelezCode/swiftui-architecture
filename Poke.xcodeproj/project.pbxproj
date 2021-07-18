@@ -11,6 +11,9 @@
 		482AB73A26A3B9F9004EA115 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482AB73926A3B9F9004EA115 /* ContentView.swift */; };
 		482AB73C26A3B9FA004EA115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 482AB73B26A3B9FA004EA115 /* Assets.xcassets */; };
 		482AB73F26A3B9FA004EA115 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 482AB73E26A3B9FA004EA115 /* Preview Assets.xcassets */; };
+		48BA87C626A3BE8000401B9B /* PokeModels in Frameworks */ = {isa = PBXBuildFile; productRef = 48BA87C526A3BE8000401B9B /* PokeModels */; };
+		48BA87C826A3BE8000401B9B /* PokeServices in Frameworks */ = {isa = PBXBuildFile; productRef = 48BA87C726A3BE8000401B9B /* PokeServices */; };
+		48BA87CA26A3BE8000401B9B /* PokeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 48BA87C926A3BE8000401B9B /* PokeUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		482AB73926A3B9F9004EA115 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		482AB73B26A3B9FA004EA115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		482AB73E26A3B9FA004EA115 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		48BA87BF26A3BDEB00401B9B /* PokeModels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PokeModels; sourceTree = "<group>"; };
+		48BA87C026A3BE0D00401B9B /* PokeServices */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PokeServices; sourceTree = "<group>"; };
+		48BA87C326A3BE5D00401B9B /* PokeUI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PokeUI; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +32,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48BA87C626A3BE8000401B9B /* PokeModels in Frameworks */,
+				48BA87C826A3BE8000401B9B /* PokeServices in Frameworks */,
+				48BA87CA26A3BE8000401B9B /* PokeUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -35,8 +44,12 @@
 		482AB72B26A3B9F9004EA115 = {
 			isa = PBXGroup;
 			children = (
+				48BA87C326A3BE5D00401B9B /* PokeUI */,
+				48BA87C026A3BE0D00401B9B /* PokeServices */,
+				48BA87BF26A3BDEB00401B9B /* PokeModels */,
 				482AB73626A3B9F9004EA115 /* Poke */,
 				482AB73526A3B9F9004EA115 /* Products */,
+				48BA87C426A3BE8000401B9B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +80,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		48BA87C426A3BE8000401B9B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,6 +103,11 @@
 			dependencies = (
 			);
 			name = Poke;
+			packageProductDependencies = (
+				48BA87C526A3BE8000401B9B /* PokeModels */,
+				48BA87C726A3BE8000401B9B /* PokeServices */,
+				48BA87C926A3BE8000401B9B /* PokeUI */,
+			);
 			productName = Poke;
 			productReference = 482AB73426A3B9F9004EA115 /* Poke.app */;
 			productType = "com.apple.product-type.application";
@@ -343,6 +368,21 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		48BA87C526A3BE8000401B9B /* PokeModels */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PokeModels;
+		};
+		48BA87C726A3BE8000401B9B /* PokeServices */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PokeServices;
+		};
+		48BA87C926A3BE8000401B9B /* PokeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PokeUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 482AB72C26A3B9F9004EA115 /* Project object */;
 }
