@@ -3,9 +3,18 @@ import XCTest
 
 final class PokeServicesTests: XCTestCase {
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(PokeServices().text, "Hello, World!")
+        let service = LocalPokeService()
+        var count = 0
+        let exp = expectation(description: "expect 20 results")
+        service.getPokemonList().sink(receiveCompletion: {
+            if case .failure = $0 {
+                XCTFail()
+            }
+        }, receiveValue: {
+            count = $0.count
+            exp.fulfill()
+        })
+        waitForExpectations(timeout: 2, handler: nil)
+        XCTAssertEqual(count, 9)
     }
 }
