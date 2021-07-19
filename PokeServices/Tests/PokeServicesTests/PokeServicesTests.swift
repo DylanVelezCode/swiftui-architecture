@@ -5,7 +5,7 @@ final class PokeServicesTests: XCTestCase {
     func testExample() throws {
         let service = LocalPokeService()
         var count = 0
-        let exp = expectation(description: "expect 20 results")
+        let exp = expectation(description: "expect 9 results")
         service.getPokemonList().sink(receiveCompletion: {
             if case .failure = $0 {
                 XCTFail()
