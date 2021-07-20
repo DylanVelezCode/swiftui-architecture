@@ -14,6 +14,7 @@
 		48BA87C626A3BE8000401B9B /* PokeModels in Frameworks */ = {isa = PBXBuildFile; productRef = 48BA87C526A3BE8000401B9B /* PokeModels */; };
 		48BA87C826A3BE8000401B9B /* PokeServices in Frameworks */ = {isa = PBXBuildFile; productRef = 48BA87C726A3BE8000401B9B /* PokeServices */; };
 		48BA87CA26A3BE8000401B9B /* PokeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 48BA87C926A3BE8000401B9B /* PokeUI */; };
+		48BA87CE26A77D0B00401B9B /* PokeArch in Frameworks */ = {isa = PBXBuildFile; productRef = 48BA87CD26A77D0B00401B9B /* PokeArch */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48BA87C626A3BE8000401B9B /* PokeModels in Frameworks */,
+				48BA87CE26A77D0B00401B9B /* PokeArch in Frameworks */,
 				48BA87C826A3BE8000401B9B /* PokeServices in Frameworks */,
 				48BA87CA26A3BE8000401B9B /* PokeUI in Frameworks */,
 			);
@@ -109,6 +111,7 @@
 				48BA87C526A3BE8000401B9B /* PokeModels */,
 				48BA87C726A3BE8000401B9B /* PokeServices */,
 				48BA87C926A3BE8000401B9B /* PokeUI */,
+				48BA87CD26A77D0B00401B9B /* PokeArch */,
 			);
 			productName = Poke;
 			productReference = 482AB73426A3B9F9004EA115 /* Poke.app */;
@@ -383,6 +386,10 @@
 		48BA87C926A3BE8000401B9B /* PokeUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PokeUI;
+		};
+		48BA87CD26A77D0B00401B9B /* PokeArch */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PokeArch;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
