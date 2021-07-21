@@ -9,7 +9,19 @@ import SwiftUI
 
 struct IntroPageView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Your National PokeDex!")
+                .font(.largeTitle)
+            Text("At your hands")
+                .font(.caption)
+            Image("pokedex")
+                .resizable()
+                .scaledToFit()
+            Text("""
+Welcome to Poké! your national pokedex at your hands.
+This app contains all the info you need about your favorite pokémon spanning from the first OG generation to the latest one.
+""")
+        }
     }
 }
 

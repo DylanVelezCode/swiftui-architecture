@@ -9,7 +9,19 @@ import SwiftUI
 
 struct FeaturesPageView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Features")
+                .font(.largeTitle)
+            Image("capture")
+                .resizable()
+                .scaledToFit()
+            Text("- Support for all generations of pokémon")
+                .font(.caption)
+            Text("- See every detail of each pokémon")
+                .font(.caption)
+            Text("- Search by name or PokéDex number")
+                .font(.caption)
+        }
     }
 }
 
