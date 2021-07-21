@@ -11,26 +11,22 @@ import PokeModels
 
 final class HttpPokeService: PokeService {
     
-    private var nextListPage: String? = nil
-    private var previousListPage: String? = nil
     private var listEndpoint = "https://pokeapi.co/api/v2/pokemon/"
     
     func getPokemonList() -> AnyPublisher<[Pokemon], Error> {
-        
-        // Return empty when we reach the end
-        if nextListPage == nil && previousListPage != nil {
-            return Empty().eraseToAnyPublisher()
-        }
         
         guard let url = URL(string: listEndpoint) else {
             return Empty().eraseToAnyPublisher()
         }
         
-        let publisher = URLSession.shared.dataTaskPublisher(for: nextListPage != nil ? URL(string: nextListPage!)! : url)
+        let publisher = URLSession.shared.dataTaskPublisher(for: url)
+            .print()
             .map(\.data)
             .decode(type: PokeList.self, decoder: JSONDecoder())
-            .map(\.results)
-            .print()
+            .map { list -> [NamedResource] in
+                self.listEndpoint = list.next ?? ""
+                return list.results
+            }
             .flatMap { results in
                 results.publisher
                     .map(\.url)

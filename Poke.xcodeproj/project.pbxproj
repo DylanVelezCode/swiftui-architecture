@@ -22,6 +22,11 @@
 		48BA87DD26A8B98300401B9B /* OnboardingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA87DC26A8B98300401B9B /* OnboardingState.swift */; };
 		48BA87E026A8BB0800401B9B /* OnboardingReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA87DF26A8BB0800401B9B /* OnboardingReducer.swift */; };
 		48BA87E226A8BB9E00401B9B /* OnboardingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA87E126A8BB9E00401B9B /* OnboardingMiddleware.swift */; };
+		48BA87E526A8D0E100401B9B /* PokeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA87E426A8D0E100401B9B /* PokeListView.swift */; };
+		48BA87E726A8D2B100401B9B /* PokeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA87E626A8D2B100401B9B /* PokeListViewModel.swift */; };
+		48BA87E926A8D2CD00401B9B /* PokeListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA87E826A8D2CD00401B9B /* PokeListState.swift */; };
+		48BA87EB26A8D2D600401B9B /* PokeListReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA87EA26A8D2D600401B9B /* PokeListReducer.swift */; };
+		48BA87ED26A8D2DE00401B9B /* PokeListMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA87EC26A8D2DE00401B9B /* PokeListMiddleware.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +46,11 @@
 		48BA87DC26A8B98300401B9B /* OnboardingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingState.swift; sourceTree = "<group>"; };
 		48BA87DF26A8BB0800401B9B /* OnboardingReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingReducer.swift; sourceTree = "<group>"; };
 		48BA87E126A8BB9E00401B9B /* OnboardingMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMiddleware.swift; sourceTree = "<group>"; };
+		48BA87E426A8D0E100401B9B /* PokeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListView.swift; sourceTree = "<group>"; };
+		48BA87E626A8D2B100401B9B /* PokeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListViewModel.swift; sourceTree = "<group>"; };
+		48BA87E826A8D2CD00401B9B /* PokeListState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListState.swift; sourceTree = "<group>"; };
+		48BA87EA26A8D2D600401B9B /* PokeListReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListReducer.swift; sourceTree = "<group>"; };
+		48BA87EC26A8D2DE00401B9B /* PokeListMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListMiddleware.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +92,7 @@
 		482AB73626A3B9F9004EA115 /* Poke */ = {
 			isa = PBXGroup;
 			children = (
+				48BA87E326A8D0C700401B9B /* PokeList */,
 				48BA87CF26A8B2E200401B9B /* Onboarding */,
 				482AB73726A3B9F9004EA115 /* PokeApp.swift */,
 				482AB73926A3B9F9004EA115 /* ContentView.swift */,
@@ -142,6 +153,18 @@
 				48BA87E126A8BB9E00401B9B /* OnboardingMiddleware.swift */,
 			);
 			path = Stores;
+			sourceTree = "<group>";
+		};
+		48BA87E326A8D0C700401B9B /* PokeList */ = {
+			isa = PBXGroup;
+			children = (
+				48BA87E426A8D0E100401B9B /* PokeListView.swift */,
+				48BA87E626A8D2B100401B9B /* PokeListViewModel.swift */,
+				48BA87E826A8D2CD00401B9B /* PokeListState.swift */,
+				48BA87EA26A8D2D600401B9B /* PokeListReducer.swift */,
+				48BA87EC26A8D2DE00401B9B /* PokeListMiddleware.swift */,
+			);
+			path = PokeList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,11 +245,16 @@
 			files = (
 				48BA87D426A8B66900401B9B /* OnboardingView.swift in Sources */,
 				48BA87DD26A8B98300401B9B /* OnboardingState.swift in Sources */,
+				48BA87E926A8D2CD00401B9B /* PokeListState.swift in Sources */,
 				48BA87DB26A8B95900401B9B /* OnboardingViewModel.swift in Sources */,
+				48BA87ED26A8D2DE00401B9B /* PokeListMiddleware.swift in Sources */,
 				482AB73A26A3B9F9004EA115 /* ContentView.swift in Sources */,
 				48BA87D626A8B67100401B9B /* IntroPageView.swift in Sources */,
+				48BA87EB26A8D2D600401B9B /* PokeListReducer.swift in Sources */,
+				48BA87E526A8D0E100401B9B /* PokeListView.swift in Sources */,
 				482AB73826A3B9F9004EA115 /* PokeApp.swift in Sources */,
 				48BA87D826A8B67B00401B9B /* FeaturesPageView.swift in Sources */,
+				48BA87E726A8D2B100401B9B /* PokeListViewModel.swift in Sources */,
 				48BA87E226A8BB9E00401B9B /* OnboardingMiddleware.swift in Sources */,
 				48BA87E026A8BB0800401B9B /* OnboardingReducer.swift in Sources */,
 			);
