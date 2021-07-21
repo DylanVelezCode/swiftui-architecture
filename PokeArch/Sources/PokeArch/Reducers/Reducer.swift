@@ -14,10 +14,10 @@ public protocol Reducer {
     func reduce(state: inout State, forEvent event: Event)
 }
 
-public class AnyReducer<State, Event>: Reducer {
+open class AnyReducer<State, Event>: Reducer {
     
     public init() { }
     
-    public func reduce(state: inout State, forEvent event: Event) {
+    open func reduce(state: inout State, forEvent event: Event) {
     }
 }

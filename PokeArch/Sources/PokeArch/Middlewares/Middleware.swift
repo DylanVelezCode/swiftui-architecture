@@ -15,8 +15,9 @@ public protocol Middleware {
     func intercept(state: State, forEvent event: Event) -> AnyPublisher<Event, Never>
 }
 
-public class AnyMiddleware<State, Event>: Middleware {
-    public func intercept(state: State, forEvent event: Event) -> AnyPublisher<Event, Never> {
+open class AnyMiddleware<State, Event>: Middleware {
+    public init() { }
+    open func intercept(state: State, forEvent event: Event) -> AnyPublisher<Event, Never> {
         return Empty().eraseToAnyPublisher()
     }
 }
