@@ -41,11 +41,10 @@ public class AnyStore<State, Event>: Store {
     
     public func dispatch(event: Event) {
         reducer.reduce(state: &state, forEvent: event)
-        for mw in middlewares {
-            mw.intercept(state: state, forEvent: event)
-                .receive(on: DispatchQueue.main)
-                .sink(receiveValue: dispatch)
-                .store(in: &middlewareCancellables)
-        }
+        middlewares.publisher
+            .flatMap(maxPublishers: .max(1)) { $0.intercept(state: self.state, forEvent: event) }
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: dispatch)
+            .store(in: &middlewareCancellables)
     }
 }
