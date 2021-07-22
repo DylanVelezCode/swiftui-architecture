@@ -17,14 +17,16 @@ struct PokeListView: View, ViewConfigurable {
                       alignment: .center,
                       spacing: 20) {
                 ForEach(viewModel.state.list, id: \.id) { pokemon in
-                    PokeListItemView(pokemon: pokemon)
-                        .cornerRadius(12)
-                        .shadow(radius: 5)
-                        .onAppear {
-                            if pokemon == viewModel.state.list.last {
-                                viewModel.dispatch(event: .fetchPokemon)
+                    NavigationLink(destination: PokeDetailView(pokemon: pokemon)) {
+                        PokeListItemView(pokemon: pokemon)
+                            .cornerRadius(12)
+                            .shadow(radius: 5)
+                            .onAppear {
+                                if pokemon == viewModel.state.list.last {
+                                    viewModel.dispatch(event: .fetchPokemon)
+                                }
                             }
-                        }
+                    }
                 }
             }
                       .padding()

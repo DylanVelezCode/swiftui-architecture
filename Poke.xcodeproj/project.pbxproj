@@ -28,6 +28,7 @@
 		48BA87EB26A8D2D600401B9B /* PokeListReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA87EA26A8D2D600401B9B /* PokeListReducer.swift */; };
 		48BA87ED26A8D2DE00401B9B /* PokeListMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA87EC26A8D2DE00401B9B /* PokeListMiddleware.swift */; };
 		48BA87F026A9F91500401B9B /* PokeListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA87EF26A9F91500401B9B /* PokeListItemView.swift */; };
+		48BA87F326AA0C8C00401B9B /* PokeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA87F226AA0C8C00401B9B /* PokeDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		48BA87EA26A8D2D600401B9B /* PokeListReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListReducer.swift; sourceTree = "<group>"; };
 		48BA87EC26A8D2DE00401B9B /* PokeListMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListMiddleware.swift; sourceTree = "<group>"; };
 		48BA87EF26A9F91500401B9B /* PokeListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListItemView.swift; sourceTree = "<group>"; };
+		48BA87F226AA0C8C00401B9B /* PokeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 		482AB73626A3B9F9004EA115 /* Poke */ = {
 			isa = PBXGroup;
 			children = (
+				48BA87F126AA0C7400401B9B /* PokeDetail */,
 				48BA87E326A8D0C700401B9B /* PokeList */,
 				48BA87CF26A8B2E200401B9B /* Onboarding */,
 				482AB73726A3B9F9004EA115 /* PokeApp.swift */,
@@ -176,6 +179,14 @@
 				48BA87EF26A9F91500401B9B /* PokeListItemView.swift */,
 			);
 			path = Items;
+			sourceTree = "<group>";
+		};
+		48BA87F126AA0C7400401B9B /* PokeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				48BA87F226AA0C8C00401B9B /* PokeDetailView.swift */,
+			);
+			path = PokeDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +277,7 @@
 				482AB73826A3B9F9004EA115 /* PokeApp.swift in Sources */,
 				48BA87F026A9F91500401B9B /* PokeListItemView.swift in Sources */,
 				48BA87D826A8B67B00401B9B /* FeaturesPageView.swift in Sources */,
+				48BA87F326AA0C8C00401B9B /* PokeDetailView.swift in Sources */,
 				48BA87E726A8D2B100401B9B /* PokeListViewModel.swift in Sources */,
 				48BA87E226A8BB9E00401B9B /* OnboardingMiddleware.swift in Sources */,
 				48BA87E026A8BB0800401B9B /* OnboardingReducer.swift in Sources */,

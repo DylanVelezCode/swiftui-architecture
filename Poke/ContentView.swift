@@ -11,11 +11,9 @@ import PokeServices
 
 struct ContentView: View {
     var body: some View {
-        TabView {
-            NavigationView {
-                PokeListView()
-                    .navigationTitle("PokéDex!")
-            }
+        NavigationView {
+            PokeListView()
+                .navigationTitle("PokéDex!")
         }
     }
 }
