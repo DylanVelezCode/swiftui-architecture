@@ -17,12 +17,9 @@ struct PokeListView: View, ViewConfigurable {
                       alignment: .center,
                       spacing: 20) {
                 ForEach(viewModel.state.list, id: \.id) { pokemon in
-                    Text(pokemon.name)
-                        .font(.subheadline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.blue)
+                    PokeListItemView(pokemon: pokemon)
                         .cornerRadius(12)
+                        .shadow(radius: 5)
                         .onAppear {
                             if pokemon == viewModel.state.list.last {
                                 viewModel.dispatch(event: .fetchPokemon)
@@ -30,6 +27,7 @@ struct PokeListView: View, ViewConfigurable {
                         }
                 }
             }
+                      .padding()
         }
         .overlay(ProgressView()
                     .frame(width: 100, height: 100)

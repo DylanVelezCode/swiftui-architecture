@@ -19,6 +19,17 @@ public struct Pokemon: Identifiable, Codable {
     public let sprites: Sprite
     public let types: [PokeType]
     public let stats: [Stat]
+    
+    public init(id: Int, name: String, height: Decimetre, weight: Hectogram, abilities: [Ability], sprites: Sprite, types: [PokeType], stats: [Stat]) {
+        self.id = id
+        self.name = name
+        self.height = height
+        self.weight = weight
+        self.abilities = abilities
+        self.sprites = sprites
+        self.types = types
+        self.stats = stats
+    }
 }
 
 extension Pokemon: Equatable {

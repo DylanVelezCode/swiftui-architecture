@@ -13,4 +13,8 @@ public struct Sprite: Codable, Equatable {
     private enum CodingKeys: String, CodingKey {
         case front = "front_default"
     }
+    
+    public init(front: String) {
+        self.front = front
+    }
 }
