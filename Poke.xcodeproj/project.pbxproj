@@ -38,6 +38,7 @@
 		48BA880A26AA674500401B9B /* PokeFavoriteReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA880926AA674500401B9B /* PokeFavoriteReducer.swift */; };
 		48BA880C26AA674E00401B9B /* PokeFavoriteState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA880B26AA674E00401B9B /* PokeFavoriteState.swift */; };
 		48BA880E26AA6DE800401B9B /* PokeFavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA880D26AA6DE800401B9B /* PokeFavoritesViewModel.swift */; };
+		48BA881126AB4E1200401B9B /* LoggerMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA881026AB4E1200401B9B /* LoggerMiddleware.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		48BA880926AA674500401B9B /* PokeFavoriteReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeFavoriteReducer.swift; sourceTree = "<group>"; };
 		48BA880B26AA674E00401B9B /* PokeFavoriteState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeFavoriteState.swift; sourceTree = "<group>"; };
 		48BA880D26AA6DE800401B9B /* PokeFavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeFavoritesViewModel.swift; sourceTree = "<group>"; };
+		48BA881026AB4E1200401B9B /* LoggerMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerMiddleware.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 		482AB73626A3B9F9004EA115 /* Poke */ = {
 			isa = PBXGroup;
 			children = (
+				48BA880F26AB4D5500401B9B /* Logger */,
 				48BA87F426AA4F7F00401B9B /* PokeFavorites */,
 				48BA87F126AA0C7400401B9B /* PokeDetail */,
 				48BA87E326A8D0C700401B9B /* PokeList */,
@@ -224,6 +227,14 @@
 			path = PokeFavorites;
 			sourceTree = "<group>";
 		};
+		48BA880F26AB4D5500401B9B /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				48BA881026AB4E1200401B9B /* LoggerMiddleware.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -305,6 +316,7 @@
 				48BA880026AA569100401B9B /* PokeListItemViewModel.swift in Sources */,
 				48BA87E926A8D2CD00401B9B /* PokeListState.swift in Sources */,
 				48BA87DB26A8B95900401B9B /* OnboardingViewModel.swift in Sources */,
+				48BA881126AB4E1200401B9B /* LoggerMiddleware.swift in Sources */,
 				48BA87ED26A8D2DE00401B9B /* PokeListMiddleware.swift in Sources */,
 				48BA880A26AA674500401B9B /* PokeFavoriteReducer.swift in Sources */,
 				482AB73A26A3B9F9004EA115 /* ContentView.swift in Sources */,
