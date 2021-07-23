@@ -21,7 +21,7 @@ struct ContentView: View {
             }
             
             NavigationView {
-                PokeFavoritesView()
+                PokeFavoritesView(viewModel: .init(store: .init(initialState: .init(), reducer: PokeFavoriteReducer(), middlewares: [PokeFavoriteMiddleware(service: FavoritePokeService())])))
                     .navigationTitle("Favorites!")
             }
             .tabItem {

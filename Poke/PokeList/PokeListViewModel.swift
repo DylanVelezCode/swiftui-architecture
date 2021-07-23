@@ -32,7 +32,7 @@ class PokeListViewModel: ViewModel {
     
     private func stateChanged(newState: PokeListState) {
         if !newState.list.isEmpty {
-            self.state.list.append(contentsOf: newState.list)
+            self.state.list.append(contentsOf: newState.list.sorted { $0.id < $1.id })
         }
         self.state.isLoading = newState.isLoading
     }

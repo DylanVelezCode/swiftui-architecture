@@ -37,6 +37,7 @@
 		48BA880826AA673B00401B9B /* PokeFavoriteMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA880726AA673B00401B9B /* PokeFavoriteMiddleware.swift */; };
 		48BA880A26AA674500401B9B /* PokeFavoriteReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA880926AA674500401B9B /* PokeFavoriteReducer.swift */; };
 		48BA880C26AA674E00401B9B /* PokeFavoriteState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA880B26AA674E00401B9B /* PokeFavoriteState.swift */; };
+		48BA880E26AA6DE800401B9B /* PokeFavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA880D26AA6DE800401B9B /* PokeFavoritesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		48BA880726AA673B00401B9B /* PokeFavoriteMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeFavoriteMiddleware.swift; sourceTree = "<group>"; };
 		48BA880926AA674500401B9B /* PokeFavoriteReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeFavoriteReducer.swift; sourceTree = "<group>"; };
 		48BA880B26AA674E00401B9B /* PokeFavoriteState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeFavoriteState.swift; sourceTree = "<group>"; };
+		48BA880D26AA6DE800401B9B /* PokeFavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeFavoritesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +219,7 @@
 				48BA880726AA673B00401B9B /* PokeFavoriteMiddleware.swift */,
 				48BA880926AA674500401B9B /* PokeFavoriteReducer.swift */,
 				48BA880B26AA674E00401B9B /* PokeFavoriteState.swift */,
+				48BA880D26AA6DE800401B9B /* PokeFavoritesViewModel.swift */,
 			);
 			path = PokeFavorites;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				48BA880C26AA674E00401B9B /* PokeFavoriteState.swift in Sources */,
 				48BA87E526A8D0E100401B9B /* PokeListView.swift in Sources */,
 				48BA87F626AA4F8D00401B9B /* PokeFavoritesView.swift in Sources */,
+				48BA880E26AA6DE800401B9B /* PokeFavoritesViewModel.swift in Sources */,
 				482AB73826A3B9F9004EA115 /* PokeApp.swift in Sources */,
 				48BA880226AA56EE00401B9B /* PokeState.swift in Sources */,
 				48BA87F026A9F91500401B9B /* PokeListItemView.swift in Sources */,

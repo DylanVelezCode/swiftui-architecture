@@ -6,3 +6,14 @@
 //
 
 import Foundation
+import PokeModels
+
+struct PokeFavoritesState {
+    var list: [Pokemon] = []
+}
+
+enum PokeFavoritesEvent {
+    case fetchPokemon
+    case fetchPokemonCompleted(pokemon: [Pokemon])
+    case removeFromFavorites(id: Int)
+}
