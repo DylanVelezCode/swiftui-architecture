@@ -10,62 +10,58 @@ import PokeArch
 import PokeServices
 import Combine
 
-class PokeFavoritesLoggerMiddleware: AnyMiddleware<PokeFavoritesState, PokeFavoritesEvent> {
+protocol LogEvent {
+    var action: LoggerService.LogAction? { get }
+}
+
+class LoggerMiddleware<State, Event: LogEvent>: AnyMiddleware<State, Event> {
     private let service: LoggerService
-    
     init(service: LoggerService) {
         self.service = service
     }
     
-    override func intercept(state: PokeFavoritesState, forEvent event: PokeFavoritesEvent) -> AnyPublisher<PokeFavoritesEvent, Never> {
-        switch event {
+    override func intercept(state: State, forEvent event: Event) -> AnyPublisher<Event, Never> {
+        if let action = event.action {
+            service.log(action: action)
+        }
+        return Empty().eraseToAnyPublisher()
+    }
+}
+
+extension PokeListEvent: LogEvent {
+    var action: LoggerService.LogAction? {
+        switch self {
+        case .fetchPokemon:
+            return .pageViewed(.pokeList)
+        default:
+            return nil
+        }
+    }
+}
+
+extension PokeFavoritesEvent: LogEvent {
+    var action: LoggerService.LogAction? {
+        switch self {
         case .removeFromFavorites(let id):
-            service.log(action: .removedFavorite(id: id))
-            break
+            return .removedFavorite(id: id)
         case .fetchPokemon:
-            service.log(action: .pageViewed(.pokeFavorites))
-            break
-        case .fetchPokemonCompleted:
-            break
+            return .pageViewed(.pokeFavorites)
+        default:
+            return nil
         }
-        return Empty().eraseToAnyPublisher()
     }
+    
 }
 
-class PokeListLoggerMiddleware: AnyMiddleware<PokeListState, PokeListEvent> {
-    private let service: LoggerService
-    
-    init(service: LoggerService) {
-        self.service = service
-    }
-    
-    override func intercept(state: PokeListState, forEvent event: PokeListEvent) -> AnyPublisher<PokeListEvent, Never> {
-        switch event {
-        case .fetchPokemon:
-            service.log(action: .pageViewed(.pokeList))
-        case .fetchPokemonCompleted:
-            break
-        }
-        return Empty().eraseToAnyPublisher()
-    }
-}
-
-class PokeMiddleware: AnyMiddleware<PokeState, PokeEvent> {
-    private let service: LoggerService
-    
-    init(service: LoggerService) {
-        self.service = service
-    }
-    
-    override func intercept(state: PokeState, forEvent event: PokeEvent) -> AnyPublisher<PokeEvent, Never> {
-        switch event {
+extension PokeEvent: LogEvent {
+    var action: LoggerService.LogAction? {
+        switch self {
         case .addToFavorites(let id):
-            service.log(action: .favorite(id: id))
+            return .favorite(id: id)
         case .removeFromFavorites(let id):
-            service.log(action: .removedFavorite(id: id))
-        case .fetchIsFavoriteCompleted, .fetchIsFavorite:
-            break
+            return .removedFavorite(id: id)
+        default:
+            return nil
         }
-        return Empty().eraseToAnyPublisher()
     }
 }
