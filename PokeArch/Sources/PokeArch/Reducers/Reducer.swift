@@ -7,10 +7,7 @@
 
 import Foundation
 
-public protocol Reducer {
-    associatedtype State
-    associatedtype Event
-    
+public protocol Reducer: Stateful, Eventful {
     func reduce(state: inout State, forEvent event: Event)
 }
 

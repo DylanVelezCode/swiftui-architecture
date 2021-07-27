@@ -10,9 +10,7 @@ import Combine
 
 
 
-public protocol Store: ObservableObject {
-    associatedtype State
-    associatedtype Event
+public protocol Store: ObservableObject, Stateful, Eventful {
     associatedtype Reducer
     associatedtype Middleware
     
