@@ -6,6 +6,7 @@
 //
 import Foundation
 import PokeArch
+import PokeDomain
 class PokeFavoriteReducer: AnyReducer<PokeFavoritesState, PokeFavoritesEvent> {
     override func reduce(state: inout PokeFavoritesState, forEvent event: PokeFavoritesEvent) {
         switch event {

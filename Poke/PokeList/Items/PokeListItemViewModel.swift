@@ -9,6 +9,7 @@ import Foundation
 import PokeArch
 import PokeModels
 import Combine
+import PokeDomain
 
 class PokeListItemViewModel: ViewModel {
     struct ViewState {

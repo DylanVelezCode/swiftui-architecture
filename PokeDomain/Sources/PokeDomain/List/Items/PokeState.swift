@@ -7,11 +7,12 @@
 
 import Foundation
 
-struct PokeState {
-    var isFavorite: Bool = false
+@frozen public struct PokeState {
+    public var isFavorite: Bool = false
+    public init() { }
 }
 
-enum PokeEvent {
+@frozen public enum PokeEvent {
     case addToFavorites(id: Int)
     case removeFromFavorites(id: Int)
     case fetchIsFavorite(id: Int)

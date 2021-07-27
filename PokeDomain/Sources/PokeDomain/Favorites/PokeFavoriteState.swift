@@ -8,11 +8,12 @@
 import Foundation
 import PokeModels
 
-struct PokeFavoritesState {
-    var list: [Pokemon] = []
+@frozen public struct PokeFavoritesState {
+    public var list: [Pokemon] = []
+    public init() { }
 }
 
-enum PokeFavoritesEvent {
+@frozen public enum PokeFavoritesEvent {
     case fetchPokemon
     case fetchPokemonCompleted(pokemon: [Pokemon])
     case removeFromFavorites(id: Int)

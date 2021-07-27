@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		482AA14E26AFC4C800AAE3DD /* PokeDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 482AA14D26AFC4C800AAE3DD /* PokeDomain */; };
 		482AB73826A3B9F9004EA115 /* PokeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482AB73726A3B9F9004EA115 /* PokeApp.swift */; };
 		482AB73A26A3B9F9004EA115 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482AB73926A3B9F9004EA115 /* ContentView.swift */; };
 		482AB73C26A3B9FA004EA115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 482AB73B26A3B9FA004EA115 /* Assets.xcassets */; };
@@ -23,24 +24,21 @@
 		48BA87E226A8BB9E00401B9B /* OnboardingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA87E126A8BB9E00401B9B /* OnboardingMiddleware.swift */; };
 		48BA87E526A8D0E100401B9B /* PokeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA87E426A8D0E100401B9B /* PokeListView.swift */; };
 		48BA87E726A8D2B100401B9B /* PokeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA87E626A8D2B100401B9B /* PokeListViewModel.swift */; };
-		48BA87E926A8D2CD00401B9B /* PokeListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA87E826A8D2CD00401B9B /* PokeListState.swift */; };
 		48BA87EB26A8D2D600401B9B /* PokeListReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA87EA26A8D2D600401B9B /* PokeListReducer.swift */; };
 		48BA87ED26A8D2DE00401B9B /* PokeListMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA87EC26A8D2DE00401B9B /* PokeListMiddleware.swift */; };
 		48BA87F026A9F91500401B9B /* PokeListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA87EF26A9F91500401B9B /* PokeListItemView.swift */; };
 		48BA87F326AA0C8C00401B9B /* PokeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA87F226AA0C8C00401B9B /* PokeDetailView.swift */; };
 		48BA87F626AA4F8D00401B9B /* PokeFavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA87F526AA4F8D00401B9B /* PokeFavoritesView.swift */; };
 		48BA880026AA569100401B9B /* PokeListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA87FF26AA569100401B9B /* PokeListItemViewModel.swift */; };
-		48BA880226AA56EE00401B9B /* PokeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA880126AA56EE00401B9B /* PokeState.swift */; };
 		48BA880426AA59EC00401B9B /* PokeListItemReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA880326AA59EC00401B9B /* PokeListItemReducer.swift */; };
 		48BA880626AA59F600401B9B /* PokeListItemMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA880526AA59F600401B9B /* PokeListItemMiddleware.swift */; };
 		48BA880826AA673B00401B9B /* PokeFavoriteMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA880726AA673B00401B9B /* PokeFavoriteMiddleware.swift */; };
 		48BA880A26AA674500401B9B /* PokeFavoriteReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA880926AA674500401B9B /* PokeFavoriteReducer.swift */; };
-		48BA880C26AA674E00401B9B /* PokeFavoriteState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA880B26AA674E00401B9B /* PokeFavoriteState.swift */; };
 		48BA880E26AA6DE800401B9B /* PokeFavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA880D26AA6DE800401B9B /* PokeFavoritesViewModel.swift */; };
-		48BA881126AB4E1200401B9B /* LoggerMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA881026AB4E1200401B9B /* LoggerMiddleware.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		482AA14C26AFC44900AAE3DD /* PokeDomain */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PokeDomain; sourceTree = "<group>"; };
 		482AB73426A3B9F9004EA115 /* Poke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		482AB73726A3B9F9004EA115 /* PokeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeApp.swift; sourceTree = "<group>"; };
 		482AB73926A3B9F9004EA115 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,21 +56,17 @@
 		48BA87E126A8BB9E00401B9B /* OnboardingMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMiddleware.swift; sourceTree = "<group>"; };
 		48BA87E426A8D0E100401B9B /* PokeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListView.swift; sourceTree = "<group>"; };
 		48BA87E626A8D2B100401B9B /* PokeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListViewModel.swift; sourceTree = "<group>"; };
-		48BA87E826A8D2CD00401B9B /* PokeListState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListState.swift; sourceTree = "<group>"; };
 		48BA87EA26A8D2D600401B9B /* PokeListReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListReducer.swift; sourceTree = "<group>"; };
 		48BA87EC26A8D2DE00401B9B /* PokeListMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListMiddleware.swift; sourceTree = "<group>"; };
 		48BA87EF26A9F91500401B9B /* PokeListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListItemView.swift; sourceTree = "<group>"; };
 		48BA87F226AA0C8C00401B9B /* PokeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeDetailView.swift; sourceTree = "<group>"; };
 		48BA87F526AA4F8D00401B9B /* PokeFavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeFavoritesView.swift; sourceTree = "<group>"; };
 		48BA87FF26AA569100401B9B /* PokeListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListItemViewModel.swift; sourceTree = "<group>"; };
-		48BA880126AA56EE00401B9B /* PokeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeState.swift; sourceTree = "<group>"; };
 		48BA880326AA59EC00401B9B /* PokeListItemReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListItemReducer.swift; sourceTree = "<group>"; };
 		48BA880526AA59F600401B9B /* PokeListItemMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListItemMiddleware.swift; sourceTree = "<group>"; };
 		48BA880726AA673B00401B9B /* PokeFavoriteMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeFavoriteMiddleware.swift; sourceTree = "<group>"; };
 		48BA880926AA674500401B9B /* PokeFavoriteReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeFavoriteReducer.swift; sourceTree = "<group>"; };
-		48BA880B26AA674E00401B9B /* PokeFavoriteState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeFavoriteState.swift; sourceTree = "<group>"; };
 		48BA880D26AA6DE800401B9B /* PokeFavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeFavoritesViewModel.swift; sourceTree = "<group>"; };
-		48BA881026AB4E1200401B9B /* LoggerMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerMiddleware.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +75,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48BA87C626A3BE8000401B9B /* PokeModels in Frameworks */,
+				482AA14E26AFC4C800AAE3DD /* PokeDomain in Frameworks */,
 				48BA87CE26A77D0B00401B9B /* PokeArch in Frameworks */,
 				48BA87C826A3BE8000401B9B /* PokeServices in Frameworks */,
 			);
@@ -92,6 +87,7 @@
 		482AB72B26A3B9F9004EA115 = {
 			isa = PBXGroup;
 			children = (
+				482AA14C26AFC44900AAE3DD /* PokeDomain */,
 				48BA87CC26A3BF2C00401B9B /* PokeArch */,
 				48BA87C026A3BE0D00401B9B /* PokeServices */,
 				48BA87BF26A3BDEB00401B9B /* PokeModels */,
@@ -184,7 +180,6 @@
 				48BA87EE26A9F8E000401B9B /* Items */,
 				48BA87E426A8D0E100401B9B /* PokeListView.swift */,
 				48BA87E626A8D2B100401B9B /* PokeListViewModel.swift */,
-				48BA87E826A8D2CD00401B9B /* PokeListState.swift */,
 				48BA87EA26A8D2D600401B9B /* PokeListReducer.swift */,
 				48BA87EC26A8D2DE00401B9B /* PokeListMiddleware.swift */,
 			);
@@ -196,7 +191,6 @@
 			children = (
 				48BA87EF26A9F91500401B9B /* PokeListItemView.swift */,
 				48BA87FF26AA569100401B9B /* PokeListItemViewModel.swift */,
-				48BA880126AA56EE00401B9B /* PokeState.swift */,
 				48BA880326AA59EC00401B9B /* PokeListItemReducer.swift */,
 				48BA880526AA59F600401B9B /* PokeListItemMiddleware.swift */,
 			);
@@ -217,7 +211,6 @@
 				48BA87F526AA4F8D00401B9B /* PokeFavoritesView.swift */,
 				48BA880726AA673B00401B9B /* PokeFavoriteMiddleware.swift */,
 				48BA880926AA674500401B9B /* PokeFavoriteReducer.swift */,
-				48BA880B26AA674E00401B9B /* PokeFavoriteState.swift */,
 				48BA880D26AA6DE800401B9B /* PokeFavoritesViewModel.swift */,
 			);
 			path = PokeFavorites;
@@ -226,7 +219,6 @@
 		48BA880F26AB4D5500401B9B /* Logger */ = {
 			isa = PBXGroup;
 			children = (
-				48BA881026AB4E1200401B9B /* LoggerMiddleware.swift */,
 			);
 			path = Logger;
 			sourceTree = "<group>";
@@ -251,6 +243,7 @@
 				48BA87C526A3BE8000401B9B /* PokeModels */,
 				48BA87C726A3BE8000401B9B /* PokeServices */,
 				48BA87CD26A77D0B00401B9B /* PokeArch */,
+				482AA14D26AFC4C800AAE3DD /* PokeDomain */,
 			);
 			productName = Poke;
 			productReference = 482AB73426A3B9F9004EA115 /* Poke.app */;
@@ -309,20 +302,16 @@
 				48BA87D426A8B66900401B9B /* OnboardingView.swift in Sources */,
 				48BA87DD26A8B98300401B9B /* OnboardingState.swift in Sources */,
 				48BA880026AA569100401B9B /* PokeListItemViewModel.swift in Sources */,
-				48BA87E926A8D2CD00401B9B /* PokeListState.swift in Sources */,
 				48BA87DB26A8B95900401B9B /* OnboardingViewModel.swift in Sources */,
-				48BA881126AB4E1200401B9B /* LoggerMiddleware.swift in Sources */,
 				48BA87ED26A8D2DE00401B9B /* PokeListMiddleware.swift in Sources */,
 				48BA880A26AA674500401B9B /* PokeFavoriteReducer.swift in Sources */,
 				482AB73A26A3B9F9004EA115 /* ContentView.swift in Sources */,
 				48BA87D626A8B67100401B9B /* IntroPageView.swift in Sources */,
 				48BA87EB26A8D2D600401B9B /* PokeListReducer.swift in Sources */,
-				48BA880C26AA674E00401B9B /* PokeFavoriteState.swift in Sources */,
 				48BA87E526A8D0E100401B9B /* PokeListView.swift in Sources */,
 				48BA87F626AA4F8D00401B9B /* PokeFavoritesView.swift in Sources */,
 				48BA880E26AA6DE800401B9B /* PokeFavoritesViewModel.swift in Sources */,
 				482AB73826A3B9F9004EA115 /* PokeApp.swift in Sources */,
-				48BA880226AA56EE00401B9B /* PokeState.swift in Sources */,
 				48BA87F026A9F91500401B9B /* PokeListItemView.swift in Sources */,
 				48BA87D826A8B67B00401B9B /* FeaturesPageView.swift in Sources */,
 				48BA880426AA59EC00401B9B /* PokeListItemReducer.swift in Sources */,
@@ -538,6 +527,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		482AA14D26AFC4C800AAE3DD /* PokeDomain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PokeDomain;
+		};
 		48BA87C526A3BE8000401B9B /* PokeModels */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PokeModels;

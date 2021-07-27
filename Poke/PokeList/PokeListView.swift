@@ -8,6 +8,7 @@
 import SwiftUI
 import PokeArch
 import PokeServices
+import PokeDomain
 
 struct PokeListView: View, ViewConfigurable {
     @ObservedObject var viewModel: PokeListViewModel = .init(store: AnyStore<PokeListState, PokeListEvent>(initialState: .init(), reducer: PokeListReducer(), middlewares: [PokeListMiddleware(service: PokeFactory.getServiceOf(type: .http)), LoggerMiddleware(service: LoggerService())]))

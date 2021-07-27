@@ -7,6 +7,7 @@
 
 import Foundation
 import PokeArch
+import PokeDomain
 class PokeListReducer: AnyReducer<PokeListState, PokeListEvent> {
     
     override func reduce(state: inout PokeListState, forEvent event: PokeListEvent) {

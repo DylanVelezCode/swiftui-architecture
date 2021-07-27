@@ -9,6 +9,7 @@ import Foundation
 import PokeArch
 import PokeServices
 import Combine
+import PokeDomain
 
 class PokeListItemMiddleware: AnyMiddleware<PokeState, PokeEvent> {
     private let service: FavoritePokeService

@@ -8,12 +8,16 @@
 import Foundation
 import PokeModels
 
-struct PokeListState {
-    var list: [Pokemon] = []
-    var isLoading = false
+@frozen public struct PokeListState {
+    public var list: [Pokemon] = []
+    public var isLoading = false
+    
+    public init() {
+        
+    }
 }
 
-enum PokeListEvent {
+@frozen public enum PokeListEvent {
     case fetchPokemon
     case fetchPokemonCompleted(pokemon: [Pokemon])
 }

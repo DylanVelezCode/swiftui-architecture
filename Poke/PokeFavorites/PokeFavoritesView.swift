@@ -7,6 +7,7 @@
 
 import SwiftUI
 import PokeArch
+import PokeDomain
 
 struct PokeFavoritesView: View, ViewConfigurable {
     @ObservedObject var viewModel: PokeFavoritesViewModel

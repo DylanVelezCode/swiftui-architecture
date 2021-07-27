@@ -8,6 +8,7 @@
 import SwiftUI
 import PokeArch
 import PokeServices
+import PokeDomain
 
 struct ContentView: View {
     var body: some View {
