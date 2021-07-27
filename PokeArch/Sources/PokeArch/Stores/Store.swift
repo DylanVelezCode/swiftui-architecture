@@ -8,6 +8,8 @@
 import Foundation
 import Combine
 
+
+
 public protocol Store: ObservableObject {
     associatedtype State
     associatedtype Event
@@ -42,7 +44,7 @@ public class AnyStore<State, Event>: Store {
     public func dispatch(event: Event) {
         reducer.reduce(state: &state, forEvent: event)
         middlewares.publisher
-            .flatMap(maxPublishers: .max(1)) { $0.intercept(state: self.state, forEvent: event) }
+            .flatMap(maxPublishers: .max(1)) { $0.intercept(event: event) }
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: dispatch)
             .store(in: &middlewareCancellables)

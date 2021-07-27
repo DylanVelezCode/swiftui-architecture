@@ -8,16 +8,13 @@
 import Foundation
 import Combine
 
-public protocol Middleware {
-    associatedtype State
-    associatedtype Event
-    
-    func intercept(state: State, forEvent event: Event) -> AnyPublisher<Event, Never>
+public protocol Middleware: Eventful {
+    func intercept(event: Event) -> AnyPublisher<Event, Never>
 }
 
 open class AnyMiddleware<State, Event>: Middleware {
     public init() { }
-    open func intercept(state: State, forEvent event: Event) -> AnyPublisher<Event, Never> {
-        return Empty().eraseToAnyPublisher()
+    open func intercept(event: Event) -> AnyPublisher<Event, Never> {
+        fatalError()
     }
 }
