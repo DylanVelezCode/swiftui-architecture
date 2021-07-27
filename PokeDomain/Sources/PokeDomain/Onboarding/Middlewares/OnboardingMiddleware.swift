@@ -9,9 +9,9 @@ import Foundation
 import Combine
 import PokeArch
 
-class OnboardingMiddleware: AnyMiddleware<OnboardingState, OnboardingEvent> {
+public class OnboardingMiddleware: AnyMiddleware<OnboardingState, OnboardingEvent> {
     let key = "com.dylansvm.pokearch.onboarding"
-    override func intercept(event: OnboardingEvent) -> AnyPublisher<OnboardingEvent, Never> {
+    override public func intercept(event: OnboardingEvent) -> AnyPublisher<OnboardingEvent, Never> {
         switch event {
         case .fetchOnboardingStatus:
             let shouldPresentOnboarding = !UserDefaults.standard.bool(forKey: key)

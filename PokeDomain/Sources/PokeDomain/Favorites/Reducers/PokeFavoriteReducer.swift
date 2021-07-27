@@ -6,9 +6,8 @@
 //
 import Foundation
 import PokeArch
-import PokeDomain
-class PokeFavoriteReducer: AnyReducer<PokeFavoritesState, PokeFavoritesEvent> {
-    override func reduce(state: inout PokeFavoritesState, forEvent event: PokeFavoritesEvent) {
+public class PokeFavoriteReducer: AnyReducer<PokeFavoritesState, PokeFavoritesEvent> {
+    override public func reduce(state: inout PokeFavoritesState, forEvent event: PokeFavoritesEvent) {
         switch event {
         case .removeFromFavorites(let id):
             state.list.removeAll(where: { $0.id == id })

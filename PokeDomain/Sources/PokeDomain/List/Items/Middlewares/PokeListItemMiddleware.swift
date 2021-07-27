@@ -9,16 +9,15 @@ import Foundation
 import PokeArch
 import PokeServices
 import Combine
-import PokeDomain
 
-class PokeListItemMiddleware: AnyMiddleware<PokeState, PokeEvent> {
+public class PokeListItemMiddleware: AnyMiddleware<PokeState, PokeEvent> {
     private let service: FavoritePokeService
     
-    init(service: FavoritePokeService) {
+    public init(service: FavoritePokeService) {
         self.service = service
     }
     
-    override func intercept(event: PokeEvent) -> AnyPublisher<PokeEvent, Never> {
+    override public func intercept(event: PokeEvent) -> AnyPublisher<PokeEvent, Never> {
         switch event {
         case .fetchIsFavorite(let id):
             return Just(.fetchIsFavoriteCompleted(service.fetchFavorites().contains(id))).eraseToAnyPublisher()

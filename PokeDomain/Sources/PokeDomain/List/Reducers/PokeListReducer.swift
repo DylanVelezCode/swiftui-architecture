@@ -7,10 +7,10 @@
 
 import Foundation
 import PokeArch
-import PokeDomain
-class PokeListReducer: AnyReducer<PokeListState, PokeListEvent> {
+
+public class PokeListReducer: AnyReducer<PokeListState, PokeListEvent> {
     
-    override func reduce(state: inout PokeListState, forEvent event: PokeListEvent) {
+    override public func reduce(state: inout PokeListState, forEvent event: PokeListEvent) {
         switch event {
         case .fetchPokemon:
             state.list = []

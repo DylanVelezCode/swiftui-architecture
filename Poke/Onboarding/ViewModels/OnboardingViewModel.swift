@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import PokeArch
+import PokeDomain
 
 class OnboardingViewModel: ViewModel {
     struct ViewState {

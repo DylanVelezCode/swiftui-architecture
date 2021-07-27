@@ -7,6 +7,7 @@
 
 import SwiftUI
 import PokeArch
+import PokeDomain
 
 @main
 struct PokeApp: App, ViewConfigurable {

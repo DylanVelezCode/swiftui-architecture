@@ -7,11 +7,12 @@
 
 import Foundation
 
-struct OnboardingState {
-    var shouldPresentOnboarding: Bool = false
+public struct OnboardingState {
+    public var shouldPresentOnboarding: Bool = false
+    public init() { }
 }
 
-enum OnboardingEvent {
+public enum OnboardingEvent {
     case fetchOnboardingStatus
     case presentOnboarding
     case onboardingDismissed
