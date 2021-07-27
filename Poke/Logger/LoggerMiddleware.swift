@@ -20,7 +20,7 @@ class LoggerMiddleware<State, Event: LogEvent>: AnyMiddleware<State, Event> {
         self.service = service
     }
     
-    override func intercept(state: State, forEvent event: Event) -> AnyPublisher<Event, Never> {
+    override func intercept(event: Event) -> AnyPublisher<Event, Never> {
         if let action = event.action {
             service.log(action: action)
         }

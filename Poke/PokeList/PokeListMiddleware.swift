@@ -17,7 +17,7 @@ class PokeListMiddleware: AnyMiddleware<PokeListState, PokeListEvent> {
         self.service = service
     }
     
-    override func intercept(state: PokeListState, forEvent event: PokeListEvent) -> AnyPublisher<PokeListEvent, Never> {
+    override func intercept(event: PokeListEvent) -> AnyPublisher<PokeListEvent, Never> {
         switch event {
         case .fetchPokemon:
             return service.getPokemonList()

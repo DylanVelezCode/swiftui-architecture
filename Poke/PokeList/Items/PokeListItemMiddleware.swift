@@ -17,7 +17,7 @@ class PokeListItemMiddleware: AnyMiddleware<PokeState, PokeEvent> {
         self.service = service
     }
     
-    override func intercept(state: PokeState, forEvent event: PokeEvent) -> AnyPublisher<PokeEvent, Never> {
+    override func intercept(event: PokeEvent) -> AnyPublisher<PokeEvent, Never> {
         switch event {
         case .fetchIsFavorite(let id):
             return Just(.fetchIsFavoriteCompleted(service.fetchFavorites().contains(id))).eraseToAnyPublisher()

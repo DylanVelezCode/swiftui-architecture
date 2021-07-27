@@ -17,7 +17,7 @@ class PokeFavoriteMiddleware: AnyMiddleware<PokeFavoritesState, PokeFavoritesEve
         self.service = service
     }
     
-    override func intercept(state: PokeFavoritesState, forEvent event: PokeFavoritesEvent) -> AnyPublisher<PokeFavoritesEvent, Never> {
+    override func intercept(event: PokeFavoritesEvent) -> AnyPublisher<PokeFavoritesEvent, Never> {
         switch event {
         case .fetchPokemon:
             return service.fetchPokemon()
