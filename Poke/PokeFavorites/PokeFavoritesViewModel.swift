@@ -12,15 +12,18 @@ import Combine
 import PokeDomain
 
 class PokeFavoritesViewModel: ViewModel {
+    typealias VMStore = Store<PokeFavoritesState, PokeFavoritesEvent, PokeFavoriteReducer>
+    typealias Event = PokeFavoritesEvent
+    
     struct ViewState {
         var list: [Pokemon] = []
     }
     
     @Published private(set) var state: ViewState = ViewState()
-    private var store: AnyStore<PokeFavoritesState, PokeFavoritesEvent>
+    private var store: VMStore
     private var stateCancellable: AnyCancellable?
     
-    init(store: AnyStore<PokeFavoritesState, PokeFavoritesEvent>) {
+    init(store: VMStore) {
         self.store = store
         self.stateCancellable = store.$state.sink(receiveValue: stateChanged)
     }

@@ -7,10 +7,7 @@
 
 import Foundation
 
-public protocol ViewModel: ObservableObject {
+public protocol ViewModel: ObservableObject, Dispatching {
     associatedtype ViewState
-    associatedtype Event
     var state: ViewState { get }
-    
-    func dispatch(event: Event)
 }

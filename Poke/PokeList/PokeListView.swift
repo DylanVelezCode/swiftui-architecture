@@ -11,7 +11,7 @@ import PokeServices
 import PokeDomain
 
 struct PokeListView: View, ViewConfigurable {
-    @ObservedObject var viewModel: PokeListViewModel = .init(store: AnyStore<PokeListState, PokeListEvent>(initialState: .init(), reducer: PokeListReducer(), middlewares: [PokeListMiddleware(service: PokeFactory.getServiceOf(type: .http)), LoggerMiddleware(service: LoggerService())]))
+    @ObservedObject var viewModel: PokeListViewModel = .init(store: .init(initialState: .init(), reducer: PokeListReducer(dependencies: .init(listService: PokeFactory.getServiceOf(type: .http), loggerService: LoggerService() ))))
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVGrid(columns: [.init(.flexible()), .init(.flexible())],
@@ -19,8 +19,7 @@ struct PokeListView: View, ViewConfigurable {
                       spacing: 20) {
                 ForEach(viewModel.state.list, id: \.id) { pokemon in
                     NavigationLink(destination: PokeDetailView(pokemon: pokemon)) {
-                        PokeListItemView(viewModel: .init(pokemon: pokemon, store: .init(initialState: .init(), reducer: PokeListItemReducer(), middlewares: [PokeListItemMiddleware(service: FavoritePokeService()),
-                                                                                                                                                             LoggerMiddleware(service: LoggerService())])))
+                        PokeListItemView(viewModel: .init(pokemon: pokemon, store: .init(initialState: .init(), reducer: PokeListItemReducer(dependencies: .init(favoriteService: .init())))))
                             .cornerRadius(12)
                             .shadow(radius: 5)
                             .onAppear {
@@ -45,8 +44,6 @@ struct PokeListView: View, ViewConfigurable {
 
 struct PokeListView_Previews: PreviewProvider {
     static var previews: some View {
-        let store = AnyStore<PokeListState, PokeListEvent>(initialState: .init(), reducer: PokeListReducer(), middlewares: [PokeListMiddleware(service: PokeFactory.getServiceOf(type: .local))])
-        let viewModel = PokeListViewModel(store: store)
-        PokeListView(viewModel: viewModel)
+        EmptyView()
     }
 }

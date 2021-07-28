@@ -8,43 +8,28 @@
 import Foundation
 import Combine
 
+fileprivate typealias StoreType = ObservableObject & Stateful & Dispatching
 
-
-public protocol Store: ObservableObject, Stateful, Eventful {
-    associatedtype Reducer
-    associatedtype Middleware
-    
-    var state: State { get }
-    
-    func dispatch(event: Event)
-    
-    init(initialState: State, reducer: Reducer, middlewares: [Middleware])
-}
-
-public class AnyStore<State, Event>: Store {
-    public typealias Reducer = AnyReducer<State, Event>
-    public typealias Middleware = AnyMiddleware<State, Event>
+public final class Store<State, Event, Reducer: Reducing>: StoreType where Reducer.State == State, Reducer.Event == Event {
     
     private let reducer: Reducer
-    private let middlewares: [Middleware]
-    private var middlewareCancellables: Set<AnyCancellable> = []
+    private var effectsCancellable: AnyCancellable?
     
     @Published private(set) public var state: State
     
     required public init(initialState: State,
-         reducer: Reducer,
-         middlewares: [Middleware]) {
+         reducer: Reducer) {
         self.state = initialState
         self.reducer = reducer
-        self.middlewares = middlewares
     }
     
     public func dispatch(event: Event) {
-        reducer.reduce(state: &state, forEvent: event)
-        middlewares.publisher
-            .flatMap(maxPublishers: .max(1)) { $0.intercept(event: event) }
+        guard let publisher = reducer.reduce(state: &state, forEvent: event) else {
+            return
+        }
+        
+        effectsCancellable = publisher
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: dispatch)
-            .store(in: &middlewareCancellables)
     }
 }

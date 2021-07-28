@@ -11,9 +11,7 @@ import PokeDomain
 
 @main
 struct PokeApp: App, ViewConfigurable {
-    @ObservedObject private(set) var viewModel: OnboardingViewModel = .init(store: .init(initialState: .init(),
-                                                                         reducer: OnboardingReducer(),
-                                                                         middlewares: [OnboardingMiddleware()]))
+    @ObservedObject private(set) var viewModel: OnboardingViewModel = .init(store: .init(initialState: .init(), reducer: OnboardingReducer()))
     var body: some Scene {
         WindowGroup {
             ContentView()

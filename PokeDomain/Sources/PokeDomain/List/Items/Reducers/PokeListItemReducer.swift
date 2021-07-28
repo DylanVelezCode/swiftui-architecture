@@ -6,8 +6,34 @@
 //
 import Foundation
 import PokeArch
-public class PokeListItemReducer: AnyReducer<PokeState, PokeEvent> {
-    override public func reduce(state: inout PokeState, forEvent event: PokeEvent) {
+import Combine
+import PokeServices
+
+public class PokeListItemReducer: Reducing, Depending {
+    public typealias State = PokeState
+    public typealias Event = PokeEvent
+    
+    var dependencies: Dependencies
+    
+    public required init(dependencies: Dependencies) {
+        self.dependencies = dependencies
+    }
+    
+    private func sideEffect(event: PokeEvent) -> Effect<PokeEvent> {
+        switch event {
+        case .fetchIsFavorite(let id):
+            return Just(.fetchIsFavoriteCompleted(dependencies.favoriteService.fetchFavorites().contains(id))).eraseToAnyPublisher()
+        case .addToFavorites(let id):
+            dependencies.favoriteService.addToFavorites(id: id)
+        case .removeFromFavorites(let id):
+            dependencies.favoriteService.removeFromFavorites(id: id)
+        case .fetchIsFavoriteCompleted:
+            break
+        }
+        return nil
+    }
+    
+    public func reduce(state: inout PokeState, forEvent event: PokeEvent) -> Effect<PokeEvent> {
         switch event {
         case .addToFavorites:
             state.isFavorite = true
@@ -17,6 +43,17 @@ public class PokeListItemReducer: AnyReducer<PokeState, PokeEvent> {
             state.isFavorite = isFavorite
         case .fetchIsFavorite:
             break
+        }
+        
+        return sideEffect(event: event)
+    }
+}
+
+extension PokeListItemReducer {
+    public struct Dependencies {
+        let favoriteService: FavoritePokeService
+        public init(favoriteService: FavoritePokeService) {
+            self.favoriteService = favoriteService
         }
     }
 }

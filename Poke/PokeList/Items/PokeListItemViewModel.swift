@@ -12,6 +12,8 @@ import Combine
 import PokeDomain
 
 class PokeListItemViewModel: ViewModel {
+    typealias VMStore = Store<PokeState, PokeEvent, PokeListItemReducer>
+    typealias Event = PokeEvent
     struct ViewState {
         var isFavorite: Bool = false
         var name: String = ""
@@ -21,11 +23,11 @@ class PokeListItemViewModel: ViewModel {
     }
     
     @Published private(set) var state: ViewState = ViewState()
-    private var store: AnyStore<PokeState, PokeEvent>
+    private var store: VMStore
     private var stateCancellable: AnyCancellable?
     private var pokemon: Pokemon
     
-    init(pokemon: Pokemon, store: AnyStore<PokeState, PokeEvent>) {
+    init(pokemon: Pokemon, store: VMStore) {
         self.store = store
         self.pokemon = pokemon
         self.stateCancellable = store.$state.sink(receiveValue: stateChanged)

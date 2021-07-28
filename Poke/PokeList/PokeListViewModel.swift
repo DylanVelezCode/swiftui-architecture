@@ -12,16 +12,18 @@ import Combine
 import PokeDomain
 
 class PokeListViewModel: ViewModel {
+    typealias VMStore = Store<PokeListState, PokeListEvent, PokeListReducer>
+    typealias Event = PokeListEvent
     struct ViewState {
         var list: [Pokemon] = []
         var isLoading = false
     }
     
     @Published private(set) var state: ViewState = ViewState()
-    private var store: AnyStore<PokeListState, PokeListEvent>
+    private var store: VMStore
     private var stateCancellable: AnyCancellable?
     
-    init(store: AnyStore<PokeListState, PokeListEvent>) {
+    init(store: VMStore) {
         self.store = store
         
         stateCancellable = store.$state.sink(receiveValue: stateChanged)

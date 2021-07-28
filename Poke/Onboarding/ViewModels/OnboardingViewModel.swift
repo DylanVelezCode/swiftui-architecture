@@ -11,15 +11,17 @@ import PokeArch
 import PokeDomain
 
 class OnboardingViewModel: ViewModel {
+    typealias Event = OnboardingEvent
+    typealias VMStore = Store<OnboardingState, OnboardingEvent, OnboardingReducer>
     struct ViewState {
         var shouldPresent = true
     }
     
     @Published private(set) public var state: ViewState = ViewState()
-    private var store: AnyStore<OnboardingState, OnboardingEvent>
+    private var store: VMStore
     private var stateCancellable: AnyCancellable?
     
-    init(store: AnyStore<OnboardingState, OnboardingEvent>) {
+    init(store: VMStore) {
         self.store = store
         stateCancellable = store.$state
             .sink(receiveValue: stateChanged)

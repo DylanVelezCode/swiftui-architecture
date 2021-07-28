@@ -6,15 +6,10 @@
 //
 
 import Foundation
+import Combine
 
-public protocol Reducer: Stateful, Eventful {
-    func reduce(state: inout State, forEvent event: Event)
-}
+public typealias Effect<Event> = AnyPublisher<Event, Never>?
 
-open class AnyReducer<State, Event>: Reducer {
-    
-    public init() { }
-    
-    open func reduce(state: inout State, forEvent event: Event) {
-    }
+public protocol Reducing: Stateful, Eventful {
+    func reduce(state: inout State, forEvent event: Event) -> Effect<Event>
 }
