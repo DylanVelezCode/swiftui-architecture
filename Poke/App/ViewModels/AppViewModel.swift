@@ -20,7 +20,7 @@ class AppViewModel: ViewModel {
     
     @Published private(set) public var state: ViewState
     private var stateCancellable: AnyCancellable?
-    @Inject var store: AppStore
+    @Inject var store: OnboardingStore
     
     public init() {
         self.state = ViewState()

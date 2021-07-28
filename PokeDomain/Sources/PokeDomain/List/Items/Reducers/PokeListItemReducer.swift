@@ -8,16 +8,14 @@ import Foundation
 import PokeArch
 import Combine
 import PokeServices
+import PokeInjection
 
 public class PokeListItemReducer: Reducing, Depending {
     public typealias State = PokeState
     public typealias Event = PokeEvent
+    public typealias Dependencies = PokeItemDependencies
     
-    var dependencies: Dependencies
-    
-    public required init(dependencies: Dependencies) {
-        self.dependencies = dependencies
-    }
+    @Inject var dependencies: Dependencies
     
     private func sideEffect(event: PokeEvent) -> Effect<PokeEvent> {
         switch event {
@@ -46,14 +44,5 @@ public class PokeListItemReducer: Reducing, Depending {
         }
         
         return sideEffect(event: event)
-    }
-}
-
-extension PokeListItemReducer {
-    public struct Dependencies {
-        let favoriteService: FavoritePokeService
-        public init(favoriteService: FavoritePokeService) {
-            self.favoriteService = favoriteService
-        }
     }
 }

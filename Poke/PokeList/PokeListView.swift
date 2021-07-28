@@ -11,7 +11,7 @@ import PokeServices
 import PokeDomain
 
 struct PokeListView: View, ViewConfigurable {
-    @ObservedObject var viewModel: PokeListViewModel = .init(store: .init(initialState: .init(), reducer: PokeListReducer(dependencies: .init(listService: PokeFactory.getServiceOf(type: .http), loggerService: LoggerService() ))))
+    @ObservedObject var viewModel: PokeListViewModel
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVGrid(columns: [.init(.flexible()), .init(.flexible())],
@@ -19,7 +19,7 @@ struct PokeListView: View, ViewConfigurable {
                       spacing: 20) {
                 ForEach(viewModel.state.list, id: \.id) { pokemon in
                     NavigationLink(destination: PokeDetailView(pokemon: pokemon)) {
-                        PokeListItemView(viewModel: .init(pokemon: pokemon, store: .init(initialState: .init(), reducer: PokeListItemReducer(dependencies: .init(favoriteService: .init())))))
+                        PokeListItemView(viewModel: .init(pokemon: pokemon))
                             .cornerRadius(12)
                             .shadow(radius: 5)
                             .onAppear {

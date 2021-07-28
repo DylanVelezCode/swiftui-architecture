@@ -7,17 +7,15 @@
 import Foundation
 import PokeArch
 import PokeServices
+import PokeInjection
 import Combine
 
 public class PokeFavoriteReducer: Reducing, Depending {
     public typealias State = PokeFavoritesState
     public typealias Event = PokeFavoritesEvent
+    public typealias Dependencies = FavoritesDependencies
     
-    var dependencies: Dependencies
-    
-    public required init(dependencies: Dependencies) {
-        self.dependencies = dependencies
-    }
+    @Inject var dependencies: Dependencies
     
     public func reduce(state: inout PokeFavoritesState, forEvent event: PokeFavoritesEvent) -> Effect<PokeFavoritesEvent> {
         
@@ -49,14 +47,5 @@ public class PokeFavoriteReducer: Reducing, Depending {
             break
         }
         return nil
-    }
-}
-
-extension PokeFavoriteReducer {
-    public struct Dependencies {
-        let service: FavoritePokeService
-        public init(service: FavoritePokeService) {
-            self.service = service
-        }
     }
 }

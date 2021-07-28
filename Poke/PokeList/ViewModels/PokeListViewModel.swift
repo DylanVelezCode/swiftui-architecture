@@ -10,9 +10,9 @@ import PokeArch
 import PokeModels
 import Combine
 import PokeDomain
+import PokeInjection
 
 class PokeListViewModel: ViewModel {
-    typealias VMStore = Store<PokeListState, PokeListEvent, PokeListReducer>
     typealias Event = PokeListEvent
     struct ViewState {
         var list: [Pokemon] = []
@@ -20,12 +20,10 @@ class PokeListViewModel: ViewModel {
     }
     
     @Published private(set) var state: ViewState = ViewState()
-    private var store: VMStore
+    @Inject var store: ListStore
     private var stateCancellable: AnyCancellable?
     
-    init(store: VMStore) {
-        self.store = store
-        
+    init() {
         stateCancellable = store.$state.sink(receiveValue: stateChanged)
     }
     

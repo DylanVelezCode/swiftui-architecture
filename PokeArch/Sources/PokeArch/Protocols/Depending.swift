@@ -9,6 +9,4 @@ import Foundation
 
 public protocol Depending {
     associatedtype Dependencies
-    
-    init(dependencies: Dependencies)
 }

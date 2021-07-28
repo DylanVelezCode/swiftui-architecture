@@ -9,16 +9,14 @@ import Foundation
 import PokeArch
 import Combine
 import PokeServices
+import PokeInjection
 
 public struct PokeListReducer: Reducing, Depending {
     public typealias State = PokeListState
     public typealias Event = PokeListEvent
+    public typealias Dependencies = PokeListDependencies
     
-    var dependencies: Dependencies
-    
-    public init(dependencies: Dependencies) {
-        self.dependencies = dependencies
-    }
+    @Inject var dependencies: Dependencies
     
     public func reduce(state: inout State, forEvent event: Event) -> Effect<Event> {
         switch event {
@@ -31,18 +29,6 @@ public struct PokeListReducer: Reducing, Depending {
         }
         
         return sideEffect(event: event)
-    }
-}
-
-extension PokeListReducer {
-    public struct Dependencies {
-        public let listService: PokeService
-        public let loggerService: LoggerService
-        
-        public init(listService: PokeService, loggerService: LoggerService) {
-            self.listService = listService
-            self.loggerService = loggerService
-        }
     }
     
     private func sideEffect(event: PokeListEvent) -> Effect<PokeListEvent> {

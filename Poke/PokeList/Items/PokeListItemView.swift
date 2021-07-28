@@ -8,6 +8,7 @@
 import SwiftUI
 import PokeModels
 import PokeArch
+import PokeDomain
 
 struct PokeListItemView: View, ViewConfigurable {
     @ObservedObject var viewModel: PokeListItemViewModel

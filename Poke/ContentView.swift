@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         TabView {
             NavigationView {
-                PokeListView()
+                PokeListView(viewModel: .init())
                     .navigationTitle("PokéDex!")
             }
             .tabItem {
@@ -22,7 +22,7 @@ struct ContentView: View {
             }
             
             NavigationView {
-                PokeFavoritesView(viewModel: .init(store: .init(initialState: .init(), reducer: PokeFavoriteReducer(dependencies: .init(service: .init())))))
+                PokeFavoritesView(viewModel: .init())
                     .navigationTitle("Favorites!")
             }
             .tabItem {

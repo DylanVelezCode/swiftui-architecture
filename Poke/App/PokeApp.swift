@@ -12,7 +12,10 @@ import PokeInjection
 
 @main
 struct PokeApp: App, ViewConfigurable {
-    private var dependencyProvider = AppDependencyProvider()
+    private let provider = OnboardingDependencyProvider()
+    private let listProvider = PokeListDependencyProvider()
+    private let itemProvider = PokeItemDependencyProvider()
+    private let favoritesProvider = FavoritesDependencyProvider()
     @ObservedObject private(set) var viewModel: AppViewModel
     
     init() {
