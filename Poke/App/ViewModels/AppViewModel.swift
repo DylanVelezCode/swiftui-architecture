@@ -9,22 +9,23 @@ import Foundation
 import Combine
 import PokeArch
 import PokeDomain
+import PokeInjection
 
-class OnboardingViewModel: ViewModel {
+class AppViewModel: ViewModel {
     typealias Event = OnboardingEvent
-    typealias VMStore = Store<OnboardingState, OnboardingEvent, OnboardingReducer>
+    
     struct ViewState {
         var shouldPresent = true
     }
     
-    @Published private(set) public var state: ViewState = ViewState()
-    private var store: VMStore
+    @Published private(set) public var state: ViewState
     private var stateCancellable: AnyCancellable?
+    @Inject var store: AppStore
     
-    init(store: VMStore) {
-        self.store = store
-        stateCancellable = store.$state
-            .sink(receiveValue: stateChanged)
+    public init() {
+        self.state = ViewState()
+        self.stateCancellable = nil
+        stateCancellable = store.$state.sink(receiveValue: stateChanged)
     }
     
     func dispatch(event: OnboardingEvent) {
