@@ -20,7 +20,6 @@ final class HttpPokeService: PokeService {
         }
         
         let publisher = URLSession.shared.dataTaskPublisher(for: url)
-            .print()
             .map(\.data)
             .decode(type: PokeList.self, decoder: JSONDecoder())
             .map { list -> [NamedResource] in

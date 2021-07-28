@@ -35,7 +35,6 @@ final class LocalPokeService: PokeService {
                     }
                     .decode(type: Pokemon.self, decoder: JSONDecoder())
             }
-            .print()
             .collect()
         
         return publisher.eraseToAnyPublisher()

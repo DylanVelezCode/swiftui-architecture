@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import os
 
 public protocol LoggerAction {
     var description: String { get }
@@ -38,6 +39,6 @@ public class LoggerService {
     public init() { }
     
     public func log(action: LogAction) {
-        print(action.description)
+        os_log("%{public}@", type: .info, action.description)
     }
 }
