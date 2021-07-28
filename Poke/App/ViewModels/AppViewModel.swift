@@ -13,18 +13,16 @@ import PokeInjection
 
 class AppViewModel: ViewModel {
     typealias Event = OnboardingEvent
-    
+    //MARK: View State
     struct ViewState {
-        var shouldPresent = true
+        var shouldPresent = false
     }
     
-    @Published private(set) public var state: ViewState
-    private var stateCancellable: AnyCancellable?
+    @Published private(set) public var state = ViewState()
     @Inject var store: OnboardingStore
+    private var stateCancellable: AnyCancellable?
     
     public init() {
-        self.state = ViewState()
-        self.stateCancellable = nil
         stateCancellable = store.$state.sink(receiveValue: stateChanged)
     }
     

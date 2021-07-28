@@ -51,12 +51,6 @@ private extension PokeApp {
 private extension PokeApp {
     var sheetBinding: Binding<Bool> {
         return Binding(get: { viewModel.state.shouldPresent },
-                       set:  { shouldPresent in
-            if shouldPresent {
-                viewModel.dispatch(event: .presentOnboarding)
-            } else {
-                viewModel.dispatch(event: .onboardingDismissed)
-            }
-        })
+                       set: { viewModel.dispatch(event: $0 ? .presentOnboarding : .onboardingDismissed) })
     }
 }

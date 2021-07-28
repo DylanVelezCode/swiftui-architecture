@@ -73,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				482AB73726A3B9F9004EA115 /* PokeApp.swift */,
+				482AB73926A3B9F9004EA115 /* ContentView.swift */,
 				482AA15426B0FF7D00AAE3DD /* ViewModels */,
 			);
 			path = App;
@@ -140,7 +141,6 @@
 				48BA87F126AA0C7400401B9B /* PokeDetail */,
 				48BA87E326A8D0C700401B9B /* PokeList */,
 				48BA87CF26A8B2E200401B9B /* Onboarding */,
-				482AB73926A3B9F9004EA115 /* ContentView.swift */,
 				482AB73B26A3B9FA004EA115 /* Assets.xcassets */,
 				482AB73D26A3B9FA004EA115 /* Preview Content */,
 			);
