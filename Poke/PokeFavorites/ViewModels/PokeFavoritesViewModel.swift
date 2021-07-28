@@ -27,11 +27,7 @@ class PokeFavoritesViewModel: ViewModel {
         self.stateCancellable = store.$state.sink(receiveValue: stateChanged)
     }
     
-    func dispatch(event: PokeFavoritesEvent) {
-        store.dispatch(event: event)
-    }
-    
-    private func stateChanged(newState: PokeFavoritesState) {
+    func stateChanged(newState: PokeFavoritesState) {
         self.state.list = newState.list.sorted { $0.id < $1.id }
     }
 }

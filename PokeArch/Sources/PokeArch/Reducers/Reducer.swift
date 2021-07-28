@@ -10,6 +10,8 @@ import Combine
 
 public typealias Effect<Event> = AnyPublisher<Event, Never>?
 
-public protocol Reducing: Stateful, Eventful {
+public protocol Reducing {
+    associatedtype State
+    associatedtype Event
     func reduce(state: inout State, forEvent event: Event) -> Effect<Event>
 }

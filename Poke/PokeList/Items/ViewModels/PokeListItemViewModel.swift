@@ -32,11 +32,7 @@ class PokeListItemViewModel: ViewModel {
         self.stateCancellable = store.$state.sink(receiveValue: stateChanged)
     }
     
-    func dispatch(event: PokeEvent) {
-        store.dispatch(event: event)
-    }
-    
-    private func stateChanged(newState: PokeState) {
+    func stateChanged(newState: PokeState) {
         self.state.id = pokemon.id
         self.state.name = pokemon.name
         self.state.url = URL(string: pokemon.sprites.front)

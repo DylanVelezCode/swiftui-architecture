@@ -14,6 +14,7 @@ import PokeInjection
 
 class PokeListViewModel: ViewModel {
     typealias Event = PokeListEvent
+    
     struct ViewState {
         var list: [Pokemon] = []
         var isLoading = false
@@ -27,11 +28,7 @@ class PokeListViewModel: ViewModel {
         stateCancellable = store.$state.sink(receiveValue: stateChanged)
     }
     
-    func dispatch(event: PokeListEvent) {
-        store.dispatch(event: event)
-    }
-    
-    private func stateChanged(newState: PokeListState) {
+    func stateChanged(newState: PokeListState) {
         if !newState.list.isEmpty {
             self.state.list.append(contentsOf: newState.list.sorted { $0.id < $1.id })
         }

@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-fileprivate typealias StoreType = ObservableObject & Stateful & Dispatching
+fileprivate typealias StoreType = ObservableObject & Dispatching
 
 public final class Store<State, Event, Reducer: Reducing>: StoreType where Reducer.State == State, Reducer.Event == Event {
     

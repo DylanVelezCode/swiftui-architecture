@@ -7,6 +7,7 @@
 
 import Foundation
 
-public protocol Dispatching: Eventful {
+public protocol Dispatching {
+    associatedtype Event
     func dispatch(event: Event)
 }

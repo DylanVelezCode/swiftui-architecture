@@ -26,11 +26,7 @@ class AppViewModel: ViewModel {
         stateCancellable = store.$state.sink(receiveValue: stateChanged)
     }
     
-    func dispatch(event: OnboardingEvent) {
-        store.dispatch(event: event)
-    }
-    
-    private func stateChanged(newState: OnboardingState) {
+    func stateChanged(newState: OnboardingState) {
         state.shouldPresent = newState.shouldPresentOnboarding
     }
 }
