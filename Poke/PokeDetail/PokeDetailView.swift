@@ -11,68 +11,102 @@ import PokeArch
 
 struct PokeDetailView: View, ViewConfigurable {
     let viewModel: PokeDetailViewModel
-    @State var gradient = [Color.red, Color.purple, Color.orange]
-    @State var startPoint = UnitPoint(x: 0, y: 0)
-    @State var endPoint = UnitPoint(x: 0, y: 2)
     var body: some View {
         VStack {
-            AsyncImage(url: viewModel.url,
-                       content: asyncImage,
-                       placeholder: placeholder)
-                .frame(maxWidth: .infinity)
-                .background(RoundedRectangle(cornerRadius: 2)
-                                .fill(LinearGradient(gradient: Gradient(colors: self.gradient), startPoint: self.startPoint, endPoint: self.endPoint))
-                                .onTapGesture {
-                                    withAnimation (.easeInOut(duration: 3)){
-                                        self.startPoint = UnitPoint(x: 1, y: -1)
-                                        self.endPoint = UnitPoint(x: 0, y: 1)
-                                    }
-                }.opacity(0.3))
+            header
             Spacer()
             VStack {
                 Text(viewModel.pokeNumber)
-                    .foregroundColor(.gray)
-                    .font(.caption)
+                    .foregroundColor(.red)
+                    .font(.callout)
                 TabView {
-                    List {
-                        Section("Abilities") {
-                            ForEach(viewModel.abilities, id: \.self) { ability in
-                                Text(ability)
-                                    .padding()
-                                
-                            }
-                        }
-                    }
-                    
-                    List {
-                        Section("Stats") {
-                            ForEach(viewModel.stats, id: \.name) { stat in
-                                
-                                HStack {
-                                    Text(stat.name)
-                                    Spacer()
-                                    Text(String(stat.base))
-                                }
-                                .padding()
-                                
-                            }
-                        }
-                    }
+                    List(content: abilities)
+                    List(content: stats)
                 }
                 .tabViewStyle(.page)
                 .indexViewStyle(.page(backgroundDisplayMode: .always))
-                Spacer()
             }
             .navigationTitle(viewModel.name)
-            .accentColor(.red)
-            
+        }
+    }
+}
+//MARK: Extra Views
+private extension PokeDetailView {
+    var rowBackground: some View {
+        HStack(spacing: 0) {
+            Rectangle()
+                .fill(Color.red)
+            Rectangle()
+                .fill(Color.black)
+                .frame(width: 10)
+                .overlay(Circle()
+                            .strokeBorder(Color.black, lineWidth: 4)
+                            .background(Circle().foregroundColor(.white))
+                            .frame(width: 30, height: 30))
+            Rectangle()
+                .fill(Color.white)
+        }
+    }
+    
+    var header: some View {
+        let background = Rectangle()
+            .fill(LinearGradient(colors: [.purple, .yellow, .blue],
+                                 startPoint: .top, endPoint: .bottom))
+            .opacity(0.05)
+        return AsyncImage(url: viewModel.url,
+                          content: asyncImage,
+                          placeholder: placeholder)
+            .shadow(radius: 5)
+            .frame(maxWidth: .infinity)
+            .background(background)
+    }
+    
+    func abilities() -> some View {
+        return Section("Abilities") {
+            ForEach(viewModel.abilities, id: \.self) { ability in
+                HStack {
+                    Text(ability)
+                        .font(.subheadline)
+                        .foregroundColor(.white)
+                        .padding()
+                    Spacer()
+                }
+                .frame(maxWidth: .infinity)
+            }
+            .background(rowBackground)
+            .cornerRadius(10)
+            .listRowBackground(Color.clear)
+            .listRowSeparator(.hidden)
+        }
+    }
+    
+    func stats() -> some View {
+        Section("Stats") {
+            ForEach(viewModel.stats, id: \.name) { stat in
+                HStack {
+                    Text(stat.name)
+                        .font(.subheadline)
+                        .foregroundColor(.white)
+                    Spacer()
+                    Text(String(stat.base))
+                        .font(.caption)
+                        .foregroundColor(.red)
+                }
+                .padding()
+                .frame(maxWidth: .infinity)
+            }
+            .background(rowBackground)
+            .cornerRadius(10)
+            .listRowBackground(Color.clear)
+            .listRowSeparator(.hidden)
         }
     }
 }
 
+//MARK: View Functions
 private extension PokeDetailView {
     func asyncImage(image: Image) -> some View {
-        return image
+        image
             .resizable()
             .frame(maxWidth: 200, maxHeight: 200)
             .scaledToFill()
@@ -80,11 +114,9 @@ private extension PokeDetailView {
     }
     
     func placeholder() -> some View {
-        withAnimation {
-            Image("pokeball")
-                .resizable()
-                .clipped()
-        }
+        Image("pokeball")
+            .resizable()
+            .clipped()
     }
 }
 
