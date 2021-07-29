@@ -18,7 +18,7 @@ struct PokeListView: View, ViewConfigurable {
                       alignment: .center,
                       spacing: 20) {
                 ForEach(viewModel.state.list, id: \.id) { pokemon in
-                    NavigationLink(destination: PokeDetailView(pokemon: pokemon)) {
+                    NavigationLink(destination: PokeDetailView(viewModel: .init(pokemon: pokemon))) {
                         PokeListItemView(viewModel: .init(pokemon: pokemon))
                             .cornerRadius(12)
                             .shadow(radius: 5)

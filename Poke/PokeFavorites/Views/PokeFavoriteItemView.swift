@@ -7,8 +7,9 @@
 
 import SwiftUI
 import PokeModels
+import PokeArch
 
-struct PokeFavoriteItemView: View {
+struct PokeFavoriteItemView: View, ViewConfigurable {
     let viewModel: PokeFavoriteItemViewModel
     var body: some View {
         HStack(alignment: .center) {

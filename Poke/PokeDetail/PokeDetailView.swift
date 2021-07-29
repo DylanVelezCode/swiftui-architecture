@@ -7,26 +7,37 @@
 
 import SwiftUI
 import PokeModels
+import PokeArch
 
-struct PokeDetailView: View {
-    var pokemon: Pokemon
+struct PokeDetailView: View, ViewConfigurable {
+    let viewModel: PokeDetailViewModel
+    @State var gradient = [Color.red, Color.purple, Color.orange]
+    @State var startPoint = UnitPoint(x: 0, y: 0)
+    @State var endPoint = UnitPoint(x: 0, y: 2)
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: pokemon.sprites.front))
-                .frame(height: 150)
-            Divider()
+            AsyncImage(url: viewModel.url,
+                       content: asyncImage,
+                       placeholder: placeholder)
+                .frame(maxWidth: .infinity)
+                .background(RoundedRectangle(cornerRadius: 2)
+                                .fill(LinearGradient(gradient: Gradient(colors: self.gradient), startPoint: self.startPoint, endPoint: self.endPoint))
+                                .onTapGesture {
+                                    withAnimation (.easeInOut(duration: 3)){
+                                        self.startPoint = UnitPoint(x: 1, y: -1)
+                                        self.endPoint = UnitPoint(x: 0, y: 1)
+                                    }
+                }.opacity(0.3))
             Spacer()
             VStack {
-                Text("#\(pokemon.id)")
+                Text(viewModel.pokeNumber)
                     .foregroundColor(.gray)
                     .font(.caption)
-                Text(pokemon.name)
-                    .font(.largeTitle)
                 TabView {
                     List {
                         Section("Abilities") {
-                            ForEach(pokemon.abilities, id: \.name) { ability in
-                                Text(ability.name)
+                            ForEach(viewModel.abilities, id: \.self) { ability in
+                                Text(ability)
                                     .padding()
                                 
                             }
@@ -35,7 +46,7 @@ struct PokeDetailView: View {
                     
                     List {
                         Section("Stats") {
-                            ForEach(pokemon.stats, id: \.name) { stat in
+                            ForEach(viewModel.stats, id: \.name) { stat in
                                 
                                 HStack {
                                     Text(stat.name)
@@ -52,12 +63,33 @@ struct PokeDetailView: View {
                 .indexViewStyle(.page(backgroundDisplayMode: .always))
                 Spacer()
             }
+            .navigationTitle(viewModel.name)
+            .accentColor(.red)
+            
+        }
+    }
+}
+
+private extension PokeDetailView {
+    func asyncImage(image: Image) -> some View {
+        return image
+            .resizable()
+            .frame(maxWidth: 200, maxHeight: 200)
+            .scaledToFill()
+            .clipped()
+    }
+    
+    func placeholder() -> some View {
+        withAnimation {
+            Image("pokeball")
+                .resizable()
+                .clipped()
         }
     }
 }
 
 struct PokeDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PokeDetailView(pokemon: .init(id: 1, name: "Bulbasaur", height: 7, weight: 29, abilities: [.init(name: "Leech Seed")], sprites: .init(front: ""), types: [.init(name: "Grass"), .init(name: "Poison")], stats: [.init(base: 40, name: "HP")]))
+        EmptyView()
     }
 }

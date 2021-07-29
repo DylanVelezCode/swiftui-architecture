@@ -11,6 +11,7 @@
 		482AA15226B0FCCE00AAE3DD /* PokeInjection in Frameworks */ = {isa = PBXBuildFile; productRef = 482AA15126B0FCCE00AAE3DD /* PokeInjection */; };
 		482AA16026B23BE600AAE3DD /* PokeFavoriteItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482AA15F26B23BE600AAE3DD /* PokeFavoriteItemView.swift */; };
 		482AA16226B2466400AAE3DD /* PokeFavoriteItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482AA16126B2466400AAE3DD /* PokeFavoriteItemViewModel.swift */; };
+		482AA16526B32A0400AAE3DD /* PokeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482AA16426B32A0400AAE3DD /* PokeDetailViewModel.swift */; };
 		482AB73826A3B9F9004EA115 /* PokeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482AB73726A3B9F9004EA115 /* PokeApp.swift */; };
 		482AB73A26A3B9F9004EA115 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482AB73926A3B9F9004EA115 /* ContentView.swift */; };
 		482AB73C26A3B9FA004EA115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 482AB73B26A3B9FA004EA115 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		482AA15026B0F7DE00AAE3DD /* PokeInjection */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PokeInjection; sourceTree = "<group>"; };
 		482AA15F26B23BE600AAE3DD /* PokeFavoriteItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeFavoriteItemView.swift; sourceTree = "<group>"; };
 		482AA16126B2466400AAE3DD /* PokeFavoriteItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeFavoriteItemViewModel.swift; sourceTree = "<group>"; };
+		482AA16426B32A0400AAE3DD /* PokeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeDetailViewModel.swift; sourceTree = "<group>"; };
 		482AB73426A3B9F9004EA115 /* Poke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		482AB73726A3B9F9004EA115 /* PokeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeApp.swift; sourceTree = "<group>"; };
 		482AB73926A3B9F9004EA115 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -122,6 +124,14 @@
 				482AA15F26B23BE600AAE3DD /* PokeFavoriteItemView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		482AA16326B329F600AAE3DD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				482AA16426B32A0400AAE3DD /* PokeDetailViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		482AB72B26A3B9F9004EA115 = {
@@ -223,6 +233,7 @@
 		48BA87F126AA0C7400401B9B /* PokeDetail */ = {
 			isa = PBXGroup;
 			children = (
+				482AA16326B329F600AAE3DD /* ViewModels */,
 				48BA87F226AA0C8C00401B9B /* PokeDetailView.swift */,
 			);
 			path = PokeDetail;
@@ -317,6 +328,7 @@
 			files = (
 				48BA87D426A8B66900401B9B /* OnboardingView.swift in Sources */,
 				48BA880026AA569100401B9B /* PokeListItemViewModel.swift in Sources */,
+				482AA16526B32A0400AAE3DD /* PokeDetailViewModel.swift in Sources */,
 				48BA87DB26A8B95900401B9B /* AppViewModel.swift in Sources */,
 				482AB73A26A3B9F9004EA115 /* ContentView.swift in Sources */,
 				48BA87D626A8B67100401B9B /* IntroPageView.swift in Sources */,

@@ -30,7 +30,9 @@ private extension PokeFavoritesView {
             onRemoveFavorite(id: pokemon.id)
         })
         
-        return NavigationLink(destination: PokeDetailView(pokemon: pokemon)) {
+        let detailViewModel = PokeDetailViewModel(pokemon: pokemon)
+        
+        return NavigationLink(destination: PokeDetailView(viewModel: detailViewModel)) {
             PokeFavoriteItemView(viewModel: itemViewModel)
         }
         .frame(height: 80)
