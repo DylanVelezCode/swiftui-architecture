@@ -23,20 +23,22 @@ class PokeListItemViewModel: ViewModel {
     }
     
     @Published private(set) var state: ViewState = ViewState()
-    @Inject var store: PokeItemStore
+    var store: PokeItemStore
     private var stateCancellable: AnyCancellable?
     private var pokemon: Pokemon
     
-    init(pokemon: Pokemon) {
+    init(pokemon: Pokemon, store: PokeItemStore) {
         self.pokemon = pokemon
+        self.store = store
+        self.state.id = pokemon.id
+        self.state.name = pokemon.name.replacingOccurrences(of: "-", with: " ").capitalized
+        self.state.url = URL(string: pokemon.sprites.front)
+        self.state.types = pokemon.types.map(\.name.capitalized)
         self.stateCancellable = store.$state.sink(receiveValue: stateChanged)
+        store.dispatch(event: .fetchIsFavorite(id: pokemon.id))
     }
     
     func stateChanged(newState: PokeState) {
-        self.state.id = pokemon.id
-        self.state.name = pokemon.name
-        self.state.url = URL(string: pokemon.sprites.front)
-        self.state.types = pokemon.types.map(\.name)
         self.state.isFavorite = newState.isFavorite
     }
 }

@@ -22,7 +22,6 @@ public struct PokeListDependencyProvider {
     @Provider var listService = PokeFactory.getServiceOf(type: .http)
     @Provider var loggerService = LoggerService()
     @Provider var dependencies = PokeListDependencies()
-    @Provider var store = ListStore(initialState: PokeListState(), reducer: PokeListReducer())
     
     public init() { }
 }

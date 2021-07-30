@@ -17,6 +17,8 @@ public class PokeListItemReducer: Reducing, Depending {
     
     @Inject var dependencies: Dependencies
     
+    public init() { }
+    
     private func sideEffect(event: PokeEvent) -> Effect<PokeEvent> {
         switch event {
         case .fetchIsFavorite(let id):

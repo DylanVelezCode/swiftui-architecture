@@ -13,51 +13,94 @@ import PokeDomain
 struct PokeListItemView: View, ViewConfigurable {
     @ObservedObject var viewModel: PokeListItemViewModel
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 25, style: .continuous)
-                .fill(Color.white)
-            
-            VStack {
-                HStack {
-                    Text(viewModel.state.name)
-                        .font(.headline)
-                    Spacer()
-                    Button(action: {
-                        if viewModel.state.isFavorite {
-                            viewModel.dispatch(event: .removeFromFavorites(id: viewModel.state.id))
-                        } else {
-                            viewModel.dispatch(event: .addToFavorites(id: viewModel.state.id))
-                        }
-                    }) {
-                        Image(systemName: viewModel.state.isFavorite ? "heart.fill" : "heart")
-                            .imageScale(.medium)
-                    }
-                    .buttonStyle(.plain)
-                    .foregroundColor(.red)
-                }
-                .padding(.horizontal, 16)
-                Divider()
-                AsyncImage(url: viewModel.state.url)
-                    .frame(height: 100)
-                Divider()
-                HStack {
-                    ForEach(viewModel.state.types, id: \.self) { type in
-                        Text(type)
-                            .font(.caption2)
-                            .padding(6)
-                            .background(Color.blue)
-                            .cornerRadius(25)
-                    }
-                }
-                .foregroundColor(.white)
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            
+        VStack(spacing: 0) {
+            header
+            image
+            Spacer().frame(height: 10)
+            types
         }
-        .frame(height: 200)
+        .cornerRadius(10)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(Color.gray, lineWidth: 1)
+                .opacity(0.5)
+        )
+        .frame(maxWidth: .infinity, minHeight: 200, maxHeight: 200)
+        .padding()
         .onAppear {
             viewModel.dispatch(event: .fetchIsFavorite(id: viewModel.state.id))
         }
+    }
+}
+
+private extension PokeListItemView {
+    var header: some View {
+        HStack {
+            Text(viewModel.state.name)
+                .font(.headline)
+                .lineLimit(2)
+            Spacer()
+            Button(action: {
+                if viewModel.state.isFavorite {
+                    viewModel.dispatch(event: .removeFromFavorites(id: viewModel.state.id))
+                } else {
+                    viewModel.dispatch(event: .addToFavorites(id: viewModel.state.id))
+                }
+            }) {
+                Image(systemName: viewModel.state.isFavorite ? "heart.fill" : "heart")
+                    .imageScale(.medium)
+                    .foregroundColor(.white)
+            }
+            .buttonStyle(.plain)
+            .foregroundColor(.red)
+        }
+        .foregroundColor(.white)
+        .padding()
+        .background(Color.red)
+    }
+    
+    var image: some View {
+        let background = Rectangle()
+            .fill(LinearGradient(colors: [.purple, .yellow, .blue],
+                                 startPoint: .top, endPoint: .bottom))
+            .opacity(0.05)
+        return AsyncImage(url: viewModel.state.url,
+                          content: asyncImage,
+                          placeholder: placeholder)
+            .shadow(radius: 5)
+            .frame(maxWidth: .infinity)
+            .background(background)
+    }
+    
+    var types: some View {
+        HStack {
+            ForEach(viewModel.state.types, id: \.self) { type in
+                Text(type)
+                    .font(.caption)
+                    .frame(maxWidth: .infinity)
+                    .padding(6)
+                    .background(Color.pink)
+                    .cornerRadius(16)
+            }
+        }
+        .padding()
+        .foregroundColor(.white)
+    }
+}
+
+private extension PokeListItemView {
+    func asyncImage(image: Image) -> some View {
+        image
+            .resizable()
+            .frame(maxWidth: 100, maxHeight: 100)
+            .clipped()
+    }
+    
+    func placeholder() -> some View {
+        Image("pokeball")
+            .resizable()
+            .scaledToFit()
+            .clipped()
     }
 }
 

@@ -18,7 +18,7 @@ struct PokeApp: App, ViewConfigurable {
     private let itemProvider = PokeItemDependencyProvider()
     private let favoritesProvider = FavoritesDependencyProvider()
     
-    @ObservedObject private(set) var viewModel = AppViewModel()
+    @ObservedObject private(set) var viewModel = AppViewModel(store: .init(initialState: .init(), reducer: .init()))
     
     //MARK: - Body
     var body: some Scene {

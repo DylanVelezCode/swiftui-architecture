@@ -21,10 +21,11 @@ class PokeListViewModel: ViewModel {
     }
     
     @Published private(set) var state: ViewState = ViewState()
-    @Inject var store: ListStore
+    var store: ListStore
     private var stateCancellable: AnyCancellable?
     
-    init() {
+    init(store: ListStore) {
+        self.store = store
         stateCancellable = store.$state.sink(receiveValue: stateChanged)
     }
     

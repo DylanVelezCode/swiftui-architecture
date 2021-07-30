@@ -8,20 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    //MARK: - ViewModels
-    private let listVM = PokeListViewModel()
-    private let favoritesVM = PokeFavoritesViewModel()
     
     var body: some View {
         TabView {
             NavigationView {
-                PokeListView(viewModel: listVM)
+                PokeListView(viewModel: PokeListViewModel(store: .init(initialState: .init(), reducer: .init())))
                     .navigationTitle("Poké!")
             }
             .tabItem(pokeDexTabItem)
             
             NavigationView {
-                PokeFavoritesView(viewModel: favoritesVM)
+                PokeFavoritesView(viewModel: PokeFavoritesViewModel(store: .init(initialState: .init(), reducer: .init())))
                     .navigationTitle("PokéFavorites!")
             }
             .tabItem(favoritesTabItem)

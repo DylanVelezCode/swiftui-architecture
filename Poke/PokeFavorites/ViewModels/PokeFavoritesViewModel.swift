@@ -20,10 +20,11 @@ class PokeFavoritesViewModel: ViewModel {
     }
     
     @Published private(set) var state: ViewState = ViewState()
-    @Inject var store: FavoriteStore
+    var store: FavoriteStore
     private var stateCancellable: AnyCancellable?
     
-    init() {
+    init(store: FavoriteStore) {
+        self.store = store
         self.stateCancellable = store.$state.sink(receiveValue: stateChanged)
     }
     

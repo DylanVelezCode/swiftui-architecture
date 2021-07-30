@@ -17,6 +17,8 @@ public class PokeFavoriteReducer: Reducing, Depending {
     
     @Inject var dependencies: Dependencies
     
+    public init() { }
+    
     public func reduce(state: inout PokeFavoritesState, forEvent event: PokeFavoritesEvent) -> Effect<PokeFavoritesEvent> {
         
         switch event {

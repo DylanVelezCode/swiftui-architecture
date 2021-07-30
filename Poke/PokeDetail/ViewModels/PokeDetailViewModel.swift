@@ -20,7 +20,7 @@ struct PokeDetailViewModel {
     }
     
     var name: String {
-        return pokemon.name.capitalized
+        return pokemon.name.replacingOccurrences(of: "-", with: " ").capitalized
     }
     
     var abilities: [String] {

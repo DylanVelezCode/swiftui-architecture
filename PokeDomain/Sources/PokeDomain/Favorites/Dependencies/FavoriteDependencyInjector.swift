@@ -20,7 +20,6 @@ public struct FavoritesDependencies {
 public struct FavoritesDependencyProvider {
     @Provider var service = FavoritePokeService()
     @Provider var dependencies = FavoritesDependencies()
-    @Provider var store = FavoriteStore(initialState: PokeFavoritesState(), reducer: PokeFavoriteReducer())
     
     public init() { }
 }

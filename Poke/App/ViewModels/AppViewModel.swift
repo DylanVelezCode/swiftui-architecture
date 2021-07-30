@@ -19,10 +19,11 @@ class AppViewModel: ViewModel {
     }
     
     @Published private(set) public var state = ViewState()
-    @Inject var store: OnboardingStore
+    var store: OnboardingStore
     private var stateCancellable: AnyCancellable?
     
-    public init() {
+    public init(store: OnboardingStore) {
+        self.store = store
         stateCancellable = store.$state.sink(receiveValue: stateChanged)
     }
     

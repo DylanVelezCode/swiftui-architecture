@@ -21,6 +21,5 @@ public struct PokeItemDependencies {
 public struct PokeItemDependencyProvider {
     @Provider var favoriteService = FavoritePokeService()
     @Provider var dependencies = PokeItemDependencies()
-    @Provider var store = PokeItemStore(initialState: PokeState(), reducer: PokeListItemReducer())
     public init() { }
 }

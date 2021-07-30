@@ -9,35 +9,46 @@ import SwiftUI
 import PokeArch
 import PokeServices
 import PokeDomain
+import PokeModels
 
 struct PokeListView: View, ViewConfigurable {
     @ObservedObject var viewModel: PokeListViewModel
+    private let columns = Array(repeating: GridItem(.flexible()), count: 2)
+    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            LazyVGrid(columns: [.init(.flexible()), .init(.flexible())],
+            LazyVGrid(columns: columns,
                       alignment: .center,
-                      spacing: 20) {
+                      spacing: 10) {
                 ForEach(viewModel.state.list, id: \.id) { pokemon in
-                    NavigationLink(destination: PokeDetailView(viewModel: .init(pokemon: pokemon))) {
-                        PokeListItemView(viewModel: .init(pokemon: pokemon))
-                            .cornerRadius(12)
-                            .shadow(radius: 5)
-                            .onAppear {
-                                if pokemon == viewModel.state.list.last {
-                                    viewModel.dispatch(event: .fetchPokemon)
-                                }
-                            }
-                    }
+                    row(pokemon: pokemon)
+                        .frame(width: 200)
                 }
-            }
-                      .padding()
+            }.padding()
+            progressView
         }
-        .overlay(ProgressView()
-                    .frame(width: 100, height: 100)
-                    .progressViewStyle(CircularProgressViewStyle())
-                    .opacity(viewModel.state.isLoading ? 1 : 0))
         .onAppear {
             viewModel.dispatch(event: .fetchPokemon)
+        }
+    }
+}
+
+private extension PokeListView {
+    var progressView: some View {
+        ProgressView()
+                    .frame(width: 100, height: 100)
+                    .progressViewStyle(CircularProgressViewStyle(tint: .red))
+                    .opacity(viewModel.state.isLoading ? 1 : 0)
+    }
+    
+    func row(pokemon: Pokemon) -> some View {
+        NavigationLink(destination: PokeDetailView(viewModel: .init(pokemon: pokemon))) {
+            PokeListItemView(viewModel: .init(pokemon: pokemon, store: .init(initialState: .init(), reducer: .init())))
+                .onAppear {
+                    if pokemon == viewModel.state.list.last {
+                        viewModel.dispatch(event: .fetchPokemon)
+                    }
+                }
         }
     }
 }
