@@ -31,7 +31,9 @@ class PokeListViewModel: ViewModel {
     
     func stateChanged(newState: PokeListState) {
         if !newState.list.isEmpty {
-            self.state.list.append(contentsOf: newState.list.sorted { $0.id < $1.id })
+            DispatchQueue.main.async {
+                self.state.list.append(contentsOf: newState.list.sorted { $0.id < $1.id })
+            }
         }
         self.state.isLoading = newState.isLoading
     }
