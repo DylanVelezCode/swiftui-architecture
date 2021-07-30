@@ -30,6 +30,7 @@ struct PokeDetailView: View, ViewConfigurable {
         }
     }
 }
+
 //MARK: Extra Views
 private extension PokeDetailView {
     var rowBackground: some View {

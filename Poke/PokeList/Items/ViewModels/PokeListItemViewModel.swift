@@ -15,6 +15,7 @@ import PokeInjection
 class PokeListItemViewModel: ViewModel {
     typealias Event = PokeEvent
     struct ViewState {
+        var heartIcon: String = ""
         var isFavorite: Bool = false
         var name: String = ""
         var url: URL? = nil
@@ -39,6 +40,14 @@ class PokeListItemViewModel: ViewModel {
     }
     
     func stateChanged(newState: PokeState) {
-        self.state.isFavorite = newState.isFavorite
+        self.state.heartIcon = newState.isFavorite ? "heart.fill" : "heart"
+    }
+    
+    func onHeartClicked() {
+        if state.isFavorite {
+            dispatch(event: .removeFromFavorites(id: state.id))
+        } else {
+            dispatch(event: .addToFavorites(id: state.id))
+        }
     }
 }

@@ -27,9 +27,7 @@ struct PokeListItemView: View, ViewConfigurable {
         )
         .frame(maxWidth: .infinity, minHeight: 200, maxHeight: 200)
         .padding()
-        .onAppear {
-            viewModel.dispatch(event: .fetchIsFavorite(id: viewModel.state.id))
-        }
+        .onAppear(perform: onAppear)
     }
 }
 
@@ -40,14 +38,8 @@ private extension PokeListItemView {
                 .font(.headline)
                 .lineLimit(2)
             Spacer()
-            Button(action: {
-                if viewModel.state.isFavorite {
-                    viewModel.dispatch(event: .removeFromFavorites(id: viewModel.state.id))
-                } else {
-                    viewModel.dispatch(event: .addToFavorites(id: viewModel.state.id))
-                }
-            }) {
-                Image(systemName: viewModel.state.isFavorite ? "heart.fill" : "heart")
+            Button(action: viewModel.onHeartClicked) {
+                Image(systemName: viewModel.state.heartIcon)
                     .imageScale(.medium)
                     .foregroundColor(.white)
             }
@@ -101,6 +93,10 @@ private extension PokeListItemView {
             .resizable()
             .scaledToFit()
             .clipped()
+    }
+    
+    func onAppear() {
+        viewModel.dispatch(event: .fetchIsFavorite(id: viewModel.state.id))
     }
 }
 
