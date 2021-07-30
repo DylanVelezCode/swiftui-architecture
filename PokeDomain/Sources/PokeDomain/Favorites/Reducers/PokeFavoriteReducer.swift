@@ -26,7 +26,9 @@ public class PokeFavoriteReducer: Reducing, Depending {
             state.list.removeAll(where: { $0.id == id })
         case .fetchPokemonCompleted(let list):
             state.list = list
+            state.isLoading = false
         case .fetchPokemon:
+            state.isLoading = true
             break
         }
         

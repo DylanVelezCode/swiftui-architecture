@@ -19,12 +19,20 @@ struct PokeFavoritesView: View, ViewConfigurable {
                 .onDelete(perform: onDelete)
         }
         .listStyle(.insetGrouped)
+        .overlay(progressView)
         .onAppear(perform: onAppear)
     }
 }
 
 //MARK: Extra Views
 private extension PokeFavoritesView {
+    var progressView: some View {
+        ProgressView()
+                    .frame(width: 100, height: 100)
+                    .progressViewStyle(CircularProgressViewStyle(tint: .red))
+                    .opacity(viewModel.state.isLoading ? 1 : 0)
+    }
+    
     func row(with pokemon: Pokemon) -> some View {
         let itemViewModel = PokeFavoriteItemViewModel(pokemon: pokemon, onClick: {
             onRemoveFavorite(id: pokemon.id)

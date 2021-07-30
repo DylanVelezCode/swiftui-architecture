@@ -37,7 +37,7 @@ public struct PokeListReducer: Reducing, Depending {
         switch event {
         case .fetchPokemon:
             let logger: AnyPublisher<PokeListEvent, Never> = {
-                dependencies.loggerService.log(action: .pageViewed(.pokeList))
+                dependencies.loggerService.log(action: event)
                 return Empty().eraseToAnyPublisher()
             }()
             return dependencies.listService.getPokemonList()

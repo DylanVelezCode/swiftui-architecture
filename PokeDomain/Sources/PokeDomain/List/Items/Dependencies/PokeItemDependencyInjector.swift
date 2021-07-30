@@ -14,12 +14,12 @@ import PokeArch
 public typealias PokeItemStore = Store<PokeState, PokeEvent, PokeListItemReducer>
 
 public struct PokeItemDependencies {
-    @Inject var favoriteService: FavoritePokeService
+    @Inject var favoriteService: FavoriteService
 }
 
 
 public struct PokeItemDependencyProvider {
-    @Provider var favoriteService = FavoritePokeService()
+    @Provider var favoriteService = ServiceLocator().favoriteService
     @Provider var dependencies = PokeItemDependencies()
     public init() { }
 }

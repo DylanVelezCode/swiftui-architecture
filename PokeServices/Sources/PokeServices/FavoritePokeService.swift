@@ -9,11 +9,8 @@ import Foundation
 import Combine
 import PokeModels
 
-public class FavoritePokeService {
+final class FavoritePokeService: FavoriteService {
     private var listEndpoint = "https://pokeapi.co/api/v2/pokemon/"
-    
-    public init() {
-    }
     
     public func fetchFavorites() -> Set<Int> {
         let storedIds = UserDefaults.standard.array(forKey: "com.dylansvm.architecture.favorites") as? [Int]

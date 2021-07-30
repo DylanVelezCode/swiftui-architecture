@@ -14,7 +14,7 @@ struct PokeFavoriteItemView: View, ViewConfigurable {
     var body: some View {
         HStack(alignment: .center) {
             AsyncImage(url: viewModel.url,
-                       content: { $0 },
+                       content: asyncImage,
                        placeholder: placeholder)
             .frame(width: 50, height: 50)
             
@@ -42,6 +42,14 @@ struct PokeFavoriteItemView: View, ViewConfigurable {
 
 //MARK: Extra Views
 private extension PokeFavoriteItemView {
+    func asyncImage(image: Image) -> some View {
+        image
+            .resizable()
+            .frame(maxWidth: 60, maxHeight: 60)
+            .scaledToFill()
+            .clipped()
+    }
+    
     func placeholder() -> some View {
         Image("pokeball")
             .resizable()

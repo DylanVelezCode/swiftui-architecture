@@ -10,6 +10,7 @@ import PokeModels
 
 @frozen public struct PokeFavoritesState {
     public var list: [Pokemon] = []
+    public var isLoading: Bool = false
     public init() { }
 }
 

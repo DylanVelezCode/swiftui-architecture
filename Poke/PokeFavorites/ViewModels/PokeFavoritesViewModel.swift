@@ -17,6 +17,7 @@ class PokeFavoritesViewModel: ViewModel {
     
     struct ViewState {
         var list: [Pokemon] = []
+        var isLoading = false
     }
     
     @Published private(set) var state: ViewState = ViewState()
@@ -30,5 +31,6 @@ class PokeFavoritesViewModel: ViewModel {
     
     func stateChanged(newState: PokeFavoritesState) {
         self.state.list = newState.list.sorted { $0.id < $1.id }
+        self.state.isLoading = newState.isLoading
     }
 }

@@ -15,12 +15,12 @@ public typealias ListStore = Store<PokeListState, PokeListEvent, PokeListReducer
 
 public struct PokeListDependencies {
     @Inject var listService: PokeService
-    @Inject var loggerService: LoggerService
+    @Inject var loggerService: LoggingService
 }
 
 public struct PokeListDependencyProvider {
-    @Provider var listService = PokeFactory.getServiceOf(type: .http)
-    @Provider var loggerService = LoggerService()
+    @Provider var listService = ServiceLocator().httpService
+    @Provider var loggerService = ServiceLocator().loggerService
     @Provider var dependencies = PokeListDependencies()
     
     public init() { }
