@@ -10,17 +10,64 @@ import SwiftUI
 struct FeaturesPageView: View {
     var body: some View {
         VStack {
+            Spacer()
             Text("Features")
+                .bold()
                 .font(.largeTitle)
-            Image("capture")
-                .resizable()
-                .scaledToFit()
-            Text("- Support for all generations of pokémon")
-                .font(.caption)
-            Text("- See every detail of each pokémon")
-                .font(.caption)
-            Text("- Search by name or PokéDex number")
-                .font(.caption)
+                .foregroundColor(.red)
+            VStack {
+                HStack {
+                    Spacer()
+                    Image("page1")
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(12)
+                        .padding()
+                    Spacer()
+                }.background(LinearGradient(colors: [.blue, .purple],
+                                            startPoint: .top, endPoint: .bottom)
+                                .opacity(0.1))
+                    .cornerRadius(16)
+                    .padding()
+                    .overlay(Text("The whole PokéDex")
+                                .bold()
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Rectangle()
+                                                .fill(Color.red)
+                                                .opacity(0.8))
+                                .cornerRadius(12))
+                
+                HStack {
+                    Spacer()
+                    Image("favorite-feature")
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(12)
+                        .padding()
+                    Image("detail-feature")
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(12)
+                        .padding()
+                    Spacer()
+                }.background(LinearGradient(colors: [.blue, .purple],
+                                            startPoint: .top, endPoint: .bottom)
+                                .opacity(0.1))
+                    .cornerRadius(16)
+                    .padding()
+                    .overlay(Text("Favorites and Details")
+                                .bold()
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Rectangle()
+                                                .fill(Color.red)
+                                                .opacity(0.8))
+                                .cornerRadius(12))
+            }
+            Spacer()
         }
     }
 }

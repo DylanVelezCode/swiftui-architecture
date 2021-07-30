@@ -8,19 +8,35 @@
 import SwiftUI
 
 struct IntroPageView: View {
+    private let description = """
+    Welcome! This will now be your personal pokedex.
+    Spanning from the first OG generation up to the 8th one.
+    """
     var body: some View {
         VStack {
-            Text("Your National PokeDex!")
+            Spacer()
+            Text("Your Personal PokeDex!")
+                .bold()
                 .font(.largeTitle)
+                .foregroundColor(.red)
             Text("At your hands")
-                .font(.caption)
-            Image("pokedex")
-                .resizable()
-                .scaledToFit()
-            Text("""
-Welcome to Poké! your national pokedex at your hands.
-This app contains all the info you need about your favorite pokémon spanning from the first OG generation to the latest one.
-""")
+                .bold()
+                .font(.subheadline)
+                .foregroundColor(.red)
+                .opacity(0.5)
+            HStack {
+                Spacer()
+                Image("page1")
+                    .resizable()
+                    .scaledToFit()
+                    .cornerRadius(12)
+                    .padding()
+                Spacer()
+            }.background(LinearGradient(colors: [.blue, .purple],
+                                        startPoint: .top, endPoint: .bottom)
+                            .opacity(0.1))
+                .cornerRadius(16)
+                .padding()
         }
     }
 }
