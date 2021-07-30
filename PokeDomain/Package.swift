@@ -22,9 +22,6 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "PokeDomain",
-            dependencies: ["PokeArch", "PokeServices", "PokeModels"]),
-        .testTarget(
-            name: "PokeDomainTests",
-            dependencies: ["PokeDomain"]),
+            dependencies: ["PokeArch", "PokeServices", "PokeModels"])
     ]
 )

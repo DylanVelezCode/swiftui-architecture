@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Specifies the requirements for dependencies
 public protocol Depending {
     associatedtype Dependencies
 }
