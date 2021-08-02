@@ -70,6 +70,8 @@ private extension PokeFavoritesView {
 //MARK: Preview
 struct PokeFavoritesView_Previews: PreviewProvider {
     static var previews: some View {
-        EmptyView()
+        var state = PokeFavoritesState()
+        state.list = [.init(id: 1, name: "Bulbasaur", height: 10, weight: 10, abilities: [], sprites: .init(front: ""), types: [], stats: [])]
+        return PokeFavoritesView(viewModel: .init(store: .init(initialState: state, reducer: .init())))
     }
 }

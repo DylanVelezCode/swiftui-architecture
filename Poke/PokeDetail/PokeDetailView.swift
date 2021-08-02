@@ -123,6 +123,6 @@ private extension PokeDetailView {
 
 struct PokeDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        EmptyView()
+        PokeDetailView(viewModel: .init(pokemon: .init(id: 1, name: "Bulbasaur", height: 10, weight: 10, abilities: [.init(name: "Poison")], sprites: .init(front: ""), types: [], stats: [.init(base: 50, name: "HP")])))
     }
 }

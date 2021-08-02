@@ -13,13 +13,13 @@ import PokeArch
 
 public typealias FavoriteStore = Store<PokeFavoritesState, PokeFavoritesEvent, PokeFavoriteReducer>
 
-public struct FavoritesDependencies {
-    @Inject var service: FavoriteService
+private struct FavoritesProviderKey: InjectionKey {
+    static var currentValue: FavoriteService = ServiceLocator().favoriteService
 }
 
-public struct FavoritesDependencyProvider {
-    @Provider var service = ServiceLocator().favoriteService
-    @Provider var dependencies = FavoritesDependencies()
-    
-    public init() { }
+extension InjectedValues {
+    var favoriteService: FavoriteService {
+        get { Self[FavoritesProviderKey.self] }
+        set { Self[FavoritesProviderKey.self] = newValue }
+    }
 }

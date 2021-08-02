@@ -10,6 +10,8 @@ import PokeArch
 import PokeServices
 import PokeDomain
 import PokeModels
+import PokeInjection
+import Combine
 
 struct PokeListView: View, ViewConfigurable {
     @ObservedObject var viewModel: PokeListViewModel
@@ -54,7 +56,35 @@ private extension PokeListView {
 }
 
 struct PokeListView_Previews: PreviewProvider {
+    
+    struct Service: PokeService {
+        enum SError: Error {
+            case something
+        }
+        func getPokemonList() -> AnyPublisher<[Pokemon], Error> {
+            let array = [Pokemon(id: 1, name: "bulbasaur", height: 10, weight: 10, abilities: [], sprites: Sprite(front: ""), types: [], stats: [])]
+            return Just(array)
+                .setFailureType(to: Error.self)
+                .eraseToAnyPublisher()
+        }
+        
+        func getPokemon(id: Int) -> AnyPublisher<Pokemon, Error> {
+            return Empty().eraseToAnyPublisher()
+        }
+        
+        
+    }
+    struct PokeListDependencyProvider {
+        @Provider public var listService = Service()
+        @Provider public var loggerService = ServiceLocator().loggerService
+        @Provider public var dependencies = PokeListDependencies()
+        
+        public init() { }
+    }
+    
     static var previews: some View {
-        EmptyView()
+        var reducer = PokeListReducer()
+        reducer.dependencies.listService = Service()
+        return PokeListView(viewModel: .init(store: .init(initialState: .init(), reducer: reducer)))
     }
 }

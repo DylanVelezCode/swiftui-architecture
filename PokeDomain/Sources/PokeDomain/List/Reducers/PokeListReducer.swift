@@ -16,11 +16,12 @@ public struct PokeListReducer: Reducing, Depending {
     public typealias Event = PokeListEvent
     public typealias Dependencies = PokeListDependencies
     
-    @Inject var dependencies: Dependencies
+    @Inject public var dependencies: Dependencies
     
     public init() { }
     
     public func reduce(state: inout State, forEvent event: Event) -> Effect<Event> {
+        print(dependencies)
         switch event {
         case .fetchPokemon:
             state.list = []

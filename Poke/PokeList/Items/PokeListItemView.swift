@@ -102,6 +102,6 @@ private extension PokeListItemView {
 
 struct PokeListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        EmptyView()
+        PokeListItemView(viewModel: .init(pokemon: .init(id: 1, name: "Bulbasaur", height: 10, weight: 10, abilities: [], sprites: .init(front: ""), types: [], stats: []), store: .init(initialState: .init(), reducer: .init())))
     }
 }

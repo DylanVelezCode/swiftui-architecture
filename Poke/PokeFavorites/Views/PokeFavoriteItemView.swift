@@ -60,6 +60,6 @@ private extension PokeFavoriteItemView {
 //MARK: Preview
 struct PokeFavoriteItemView_Previews: PreviewProvider {
     static var previews: some View {
-        EmptyView()
+        PokeFavoriteItemView(viewModel: .init(pokemon: .init(id: 1, name: "Bulbasaur", height: 10, weight: 10, abilities: [], sprites: .init(front: ""), types: [], stats: []), onClick: {}))
     }
 }
