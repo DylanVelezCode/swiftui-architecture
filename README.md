@@ -31,7 +31,7 @@ While coming up with this architecture, I realized it is pretty similar to the c
 
 # How does it work?
 
-<img src="https://drive.google.com/uc?export=view&id=1z8Eva1Z9N0U4THtUp-yV4f7-qEE4uj05" width="200" />
+<img src="https://drive.google.com/uc?export=view&id=1z8Eva1Z9N0U4THtUp-yV4f7-qEE4uj05"/>
 
 According to the above diagram, this architecture is based on the thought that a View should only depend on it's view model. From there, the view model dispatches any events that happen to the store which in turn passes the event and the store's state to a reducer which will change the state accordingly using any services, workers or other dependencies.
 
