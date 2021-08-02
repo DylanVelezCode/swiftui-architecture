@@ -8,6 +8,7 @@
 import SwiftUI
 import PokeModels
 import PokeArch
+import SwURL
 
 struct PokeDetailView: View, ViewConfigurable {
     let viewModel: PokeDetailViewModel
@@ -23,8 +24,8 @@ struct PokeDetailView: View, ViewConfigurable {
                     List(content: abilities)
                     List(content: stats)
                 }
-                .tabViewStyle(.page)
-                .indexViewStyle(.page(backgroundDisplayMode: .always))
+                .tabViewStyle(PageTabViewStyle())
+                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
             }
             .navigationTitle(viewModel.name)
         }
@@ -48,22 +49,25 @@ private extension PokeDetailView {
                 .fill(Color.white)
         }
     }
-    
+    @ViewBuilder
     var header: some View {
         let background = Rectangle()
-            .fill(LinearGradient(colors: [.purple, .yellow, .blue],
+            .fill(LinearGradient(gradient: Gradient(colors: [.purple, .yellow, .blue]),
                                  startPoint: .top, endPoint: .bottom))
             .opacity(0.05)
-        return AsyncImage(url: viewModel.url,
-                          content: asyncImage,
-                          placeholder: placeholder)
+        RemoteImageView(url: viewModel.url!)
+            .imageProcessing({ image in
+                        return image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    })
             .shadow(radius: 5)
             .frame(maxWidth: .infinity)
             .background(background)
     }
     
     func abilities() -> some View {
-        return Section("Abilities") {
+        return Section(header: Text("Abilities")) {
             ForEach(viewModel.abilities, id: \.self) { ability in
                 HStack {
                     Text(ability)
@@ -77,12 +81,11 @@ private extension PokeDetailView {
             .background(rowBackground)
             .cornerRadius(10)
             .listRowBackground(Color.clear)
-            .listRowSeparator(.hidden)
         }
     }
     
     func stats() -> some View {
-        Section("Stats") {
+        Section(header: Text("Stats")){
             ForEach(viewModel.stats, id: \.name) { stat in
                 HStack {
                     Text(stat.name)
@@ -99,7 +102,6 @@ private extension PokeDetailView {
             .background(rowBackground)
             .cornerRadius(10)
             .listRowBackground(Color.clear)
-            .listRowSeparator(.hidden)
         }
     }
 }

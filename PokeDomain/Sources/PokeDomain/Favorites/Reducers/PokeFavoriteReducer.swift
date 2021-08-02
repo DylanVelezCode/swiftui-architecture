@@ -13,9 +13,12 @@ import Combine
 public class PokeFavoriteReducer: Reducing, Depending {
     public typealias State = PokeFavoritesState
     public typealias Event = PokeFavoritesEvent
-    public typealias Dependencies = FavoritesDependencies
     
-    @Inject var dependencies: Dependencies
+    public struct Dependencies {
+        @Injected(\.favoriteService) public var service: FavoriteService
+    }
+    
+    public var dependencies = Dependencies()
     
     public init() { }
     

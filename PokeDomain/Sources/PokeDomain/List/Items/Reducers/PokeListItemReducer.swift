@@ -13,9 +13,12 @@ import PokeInjection
 public class PokeListItemReducer: Reducing, Depending {
     public typealias State = PokeState
     public typealias Event = PokeEvent
-    public typealias Dependencies = PokeItemDependencies
     
-    @Inject var dependencies: Dependencies
+    public struct Dependencies {
+        @Injected(\.favoriteService) var favoriteService: FavoriteService
+    }
+    
+    let dependencies = Dependencies()
     
     public init() { }
     

@@ -8,15 +8,19 @@
 import SwiftUI
 import PokeModels
 import PokeArch
+import SwURL
 
 struct PokeFavoriteItemView: View, ViewConfigurable {
     let viewModel: PokeFavoriteItemViewModel
     var body: some View {
         HStack(alignment: .center) {
-            AsyncImage(url: viewModel.url,
-                       content: asyncImage,
-                       placeholder: placeholder)
-            .frame(width: 50, height: 50)
+            RemoteImageView(url: viewModel.url!)
+                .imageProcessing({ image in
+                            return image
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        })
+                .frame(width: 50, height: 50)
             
             Text(viewModel.title)
                 .font(.headline)
@@ -33,7 +37,7 @@ struct PokeFavoriteItemView: View, ViewConfigurable {
                 Image(systemName: "heart.fill")
                     .imageScale(.medium)
             }
-            .buttonStyle(.plain)
+            .buttonStyle(PlainButtonStyle())
             .foregroundColor(.red)
         }
         .frame(maxWidth: .infinity)

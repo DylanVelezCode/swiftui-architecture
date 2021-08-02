@@ -18,7 +18,7 @@ struct PokeFavoritesView: View, ViewConfigurable {
             ForEach(viewModel.state.list, content: row)
                 .onDelete(perform: onDelete)
         }
-        .listStyle(.insetGrouped)
+        .listStyle(InsetGroupedListStyle())
         .overlay(progressView)
         .onAppear(perform: onAppear)
     }

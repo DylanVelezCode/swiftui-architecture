@@ -32,7 +32,7 @@ struct IntroPageView: View {
                     .cornerRadius(12)
                     .padding()
                 Spacer()
-            }.background(LinearGradient(colors: [.blue, .purple],
+            }.background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]),
                                         startPoint: .top, endPoint: .bottom)
                             .opacity(0.1))
                 .cornerRadius(16)

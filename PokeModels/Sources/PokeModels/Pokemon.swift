@@ -10,7 +10,7 @@ import Foundation
 public typealias Decimetre = Int
 public typealias Hectogram = Int
 
-public struct Pokemon: Identifiable, Codable {
+public struct Pokemon: Identifiable, Codable, Hashable {
     public let id: Int
     public let name: String
     public let height: Decimetre
@@ -19,6 +19,10 @@ public struct Pokemon: Identifiable, Codable {
     public let sprites: Sprite
     public let types: [PokeType]
     public let stats: [Stat]
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
     
     public init(id: Int, name: String, height: Decimetre, weight: Hectogram, abilities: [Ability], sprites: Sprite, types: [PokeType], stats: [Stat]) {
         self.id = id

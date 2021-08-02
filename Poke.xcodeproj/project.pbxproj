@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48259D0A26B7C3210082ACD7 /* SwURL in Frameworks */ = {isa = PBXBuildFile; productRef = 48259D0926B7C3210082ACD7 /* SwURL */; };
 		482AA14E26AFC4C800AAE3DD /* PokeDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 482AA14D26AFC4C800AAE3DD /* PokeDomain */; };
 		482AA15226B0FCCE00AAE3DD /* PokeInjection in Frameworks */ = {isa = PBXBuildFile; productRef = 482AA15126B0FCCE00AAE3DD /* PokeInjection */; };
 		482AA16026B23BE600AAE3DD /* PokeFavoriteItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482AA15F26B23BE600AAE3DD /* PokeFavoriteItemView.swift */; };
@@ -17,7 +18,7 @@
 		482AB73A26A3B9F9004EA115 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482AB73926A3B9F9004EA115 /* ContentView.swift */; };
 		482AB73C26A3B9FA004EA115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 482AB73B26A3B9FA004EA115 /* Assets.xcassets */; };
 		482AB73F26A3B9FA004EA115 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 482AB73E26A3B9FA004EA115 /* Preview Assets.xcassets */; };
-		48BA87C626A3BE8000401B9B /* PokeModels in Frameworks */ = {isa = PBXBuildFile; productRef = 48BA87C526A3BE8000401B9B /* PokeModels */; };
+		48515C7A26B7C6950045705E /* PokeModels in Frameworks */ = {isa = PBXBuildFile; productRef = 48515C7926B7C6950045705E /* PokeModels */; };
 		48BA87C826A3BE8000401B9B /* PokeServices in Frameworks */ = {isa = PBXBuildFile; productRef = 48BA87C726A3BE8000401B9B /* PokeServices */; };
 		48BA87CE26A77D0B00401B9B /* PokeArch in Frameworks */ = {isa = PBXBuildFile; productRef = 48BA87CD26A77D0B00401B9B /* PokeArch */; };
 		48BA87D426A8B66900401B9B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA87D326A8B66900401B9B /* OnboardingView.swift */; };
@@ -66,8 +67,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48259D0A26B7C3210082ACD7 /* SwURL in Frameworks */,
+				48515C7A26B7C6950045705E /* PokeModels in Frameworks */,
 				482AA15226B0FCCE00AAE3DD /* PokeInjection in Frameworks */,
-				48BA87C626A3BE8000401B9B /* PokeModels in Frameworks */,
 				482AA14E26AFC4C800AAE3DD /* PokeDomain in Frameworks */,
 				48BA87CE26A77D0B00401B9B /* PokeArch in Frameworks */,
 				48BA87C826A3BE8000401B9B /* PokeServices in Frameworks */,
@@ -269,11 +271,12 @@
 			);
 			name = Poke;
 			packageProductDependencies = (
-				48BA87C526A3BE8000401B9B /* PokeModels */,
 				48BA87C726A3BE8000401B9B /* PokeServices */,
 				48BA87CD26A77D0B00401B9B /* PokeArch */,
 				482AA14D26AFC4C800AAE3DD /* PokeDomain */,
 				482AA15126B0FCCE00AAE3DD /* PokeInjection */,
+				48259D0926B7C3210082ACD7 /* SwURL */,
+				48515C7926B7C6950045705E /* PokeModels */,
 			);
 			productName = Poke;
 			productReference = 482AB73426A3B9F9004EA115 /* Poke.app */;
@@ -295,7 +298,7 @@
 				};
 			};
 			buildConfigurationList = 482AB72F26A3B9F9004EA115 /* Build configuration list for PBXProject "Poke" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -303,6 +306,9 @@
 				Base,
 			);
 			mainGroup = 482AB72B26A3B9F9004EA115;
+			packageReferences = (
+				48259D0826B7C3210082ACD7 /* XCRemoteSwiftPackageReference "SwURL" */,
+			);
 			productRefGroup = 482AB73526A3B9F9004EA115 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -484,7 +490,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -514,7 +520,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -551,7 +557,23 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		48259D0826B7C3210082ACD7 /* XCRemoteSwiftPackageReference "SwURL" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cmtrounce/SwURL";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		48259D0926B7C3210082ACD7 /* SwURL */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48259D0826B7C3210082ACD7 /* XCRemoteSwiftPackageReference "SwURL" */;
+			productName = SwURL;
+		};
 		482AA14D26AFC4C800AAE3DD /* PokeDomain */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PokeDomain;
@@ -560,7 +582,7 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = PokeInjection;
 		};
-		48BA87C526A3BE8000401B9B /* PokeModels */ = {
+		48515C7926B7C6950045705E /* PokeModels */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PokeModels;
 		};

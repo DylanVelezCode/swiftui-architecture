@@ -9,6 +9,7 @@ import SwiftUI
 import PokeModels
 import PokeArch
 import PokeDomain
+import SwURL
 
 struct PokeListItemView: View, ViewConfigurable {
     @ObservedObject var viewModel: PokeListItemViewModel
@@ -43,7 +44,7 @@ private extension PokeListItemView {
                     .imageScale(.medium)
                     .foregroundColor(.white)
             }
-            .buttonStyle(.plain)
+            .buttonStyle(PlainButtonStyle())
             .foregroundColor(.red)
         }
         .foregroundColor(.white)
@@ -51,14 +52,18 @@ private extension PokeListItemView {
         .background(Color.red)
     }
     
+    @ViewBuilder
     var image: some View {
         let background = Rectangle()
-            .fill(LinearGradient(colors: [.purple, .yellow, .blue],
+            .fill(LinearGradient(gradient: Gradient(colors: [.purple, .yellow, .blue]),
                                  startPoint: .top, endPoint: .bottom))
             .opacity(0.05)
-        return AsyncImage(url: viewModel.state.url,
-                          content: asyncImage,
-                          placeholder: placeholder)
+        RemoteImageView(url: viewModel.state.url!)
+            .imageProcessing({ image in
+                        return image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    })
             .shadow(radius: 5)
             .frame(maxWidth: .infinity)
             .background(background)

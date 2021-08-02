@@ -47,3 +47,16 @@ final class LocalPokeService: PokeService {
             .eraseToAnyPublisher()
     }
 }
+
+
+final class MockedPokeService: PokeService {
+    func getPokemonList() -> AnyPublisher<[Pokemon], Error> {
+        return Just([Pokemon(id: 1, name: "bulbasaur", height: 10, weight: 10, abilities: [], sprites: Sprite(front: ""), types: [], stats: [])])
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+    }
+    
+    func getPokemon(id: Int) -> AnyPublisher<Pokemon, Error> {
+        return Empty().eraseToAnyPublisher()
+    }
+}
