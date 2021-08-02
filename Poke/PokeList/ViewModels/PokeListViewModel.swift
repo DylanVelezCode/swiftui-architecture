@@ -32,7 +32,7 @@ class PokeListViewModel: ViewModel {
     func stateChanged(newState: PokeListState) {
         if !newState.list.isEmpty {
             DispatchQueue.main.async {
-                let oldList = Set(self.store.state.list).union(newState.list)
+                let oldList = Set(self.state.list).union(Set(newState.list))
                 self.state.list = Array(oldList).sorted { $0.id < $1.id }
             }
         }

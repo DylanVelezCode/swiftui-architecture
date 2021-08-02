@@ -19,6 +19,7 @@
 		482AB73C26A3B9FA004EA115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 482AB73B26A3B9FA004EA115 /* Assets.xcassets */; };
 		482AB73F26A3B9FA004EA115 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 482AB73E26A3B9FA004EA115 /* Preview Assets.xcassets */; };
 		48515C7A26B7C6950045705E /* PokeModels in Frameworks */ = {isa = PBXBuildFile; productRef = 48515C7926B7C6950045705E /* PokeModels */; };
+		48867E6626B7CAA200B5CE5F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48867E6526B7CAA200B5CE5F /* Launch Screen.storyboard */; };
 		48BA87C826A3BE8000401B9B /* PokeServices in Frameworks */ = {isa = PBXBuildFile; productRef = 48BA87C726A3BE8000401B9B /* PokeServices */; };
 		48BA87CE26A77D0B00401B9B /* PokeArch in Frameworks */ = {isa = PBXBuildFile; productRef = 48BA87CD26A77D0B00401B9B /* PokeArch */; };
 		48BA87D426A8B66900401B9B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA87D326A8B66900401B9B /* OnboardingView.swift */; };
@@ -46,6 +47,8 @@
 		482AB73926A3B9F9004EA115 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		482AB73B26A3B9FA004EA115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		482AB73E26A3B9FA004EA115 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		48867E6526B7CAA200B5CE5F /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		48867E6726B7CAC600B5CE5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		48BA87BF26A3BDEB00401B9B /* PokeModels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PokeModels; sourceTree = "<group>"; };
 		48BA87C026A3BE0D00401B9B /* PokeServices */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PokeServices; sourceTree = "<group>"; };
 		48BA87CC26A3BF2C00401B9B /* PokeArch */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PokeArch; sourceTree = "<group>"; };
@@ -85,6 +88,7 @@
 				482AB73726A3B9F9004EA115 /* PokeApp.swift */,
 				482AB73926A3B9F9004EA115 /* ContentView.swift */,
 				482AA15426B0FF7D00AAE3DD /* ViewModels */,
+				48867E6526B7CAA200B5CE5F /* Launch Screen.storyboard */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -164,6 +168,7 @@
 		482AB73626A3B9F9004EA115 /* Poke */ = {
 			isa = PBXGroup;
 			children = (
+				48867E6726B7CAC600B5CE5F /* Info.plist */,
 				482AA15326B0FF7800AAE3DD /* App */,
 				48BA87F426AA4F7F00401B9B /* PokeFavorites */,
 				48BA87F126AA0C7400401B9B /* PokeDetail */,
@@ -325,6 +330,7 @@
 			files = (
 				482AA16726B4A74100AAE3DD /* README.md in Resources */,
 				482AB73F26A3B9FA004EA115 /* Preview Assets.xcassets in Resources */,
+				48867E6626B7CAA200B5CE5F /* Launch Screen.storyboard in Resources */,
 				482AB73C26A3B9FA004EA115 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -485,9 +491,14 @@
 				DEVELOPMENT_TEAM = 66H7PAJH7N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Poke/Info.plist;
+				INFOPLIST_KEY_CFBundleExecutable = Poke;
+				INFOPLIST_KEY_CFBundleName = Poke;
+				INFOPLIST_KEY_CFBundleVersion = 1;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -515,9 +526,14 @@
 				DEVELOPMENT_TEAM = 66H7PAJH7N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Poke/Info.plist;
+				INFOPLIST_KEY_CFBundleExecutable = Poke;
+				INFOPLIST_KEY_CFBundleName = Poke;
+				INFOPLIST_KEY_CFBundleVersion = 1;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;

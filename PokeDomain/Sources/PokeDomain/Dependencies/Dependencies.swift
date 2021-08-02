@@ -22,7 +22,7 @@ private struct FavoriteServiceKey: InjectionKey {
 }
 
 private struct ListServiceKey: InjectionKey {
-    static var currentValue: PokeService = ServiceLocator().localService
+    static var currentValue: PokeService = ServiceLocator().httpService
 }
 
 private struct LogServiceKey: InjectionKey {
