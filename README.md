@@ -203,3 +203,15 @@ public struct Reducer: Reducing, Depending {
 
 What the reducer does is intercept the fetchData event and then call the dependencies to get new data, which returns a publisher to eventually publish a new event with the data received from the services. The reducer will again intercept this event and set the state accordingly.
 
+# Packages and Modularity
+
+The approach to dependency injection and architecture allows for development to be moduralized by having certain components be isolated with packages and frameworks.
+
+The architecture definitions are themselves stored in the `PokeArch` package.
+The Injection logic is stored in the `PokeInjection` package.
+The Domain logic which includes the possible states and events beside the reducers for each functionality, are stored in the `PokeDomain`. Each Feature could also be stored in a different package since they don't depend on each other.
+The Models are stored in the `PokeModels` package.
+The services are stored in the `PokeServices` package.
+
+The app's views and their respective view models are defined inside the application target. This way, different teams can work on different packages.
+
