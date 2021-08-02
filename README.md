@@ -12,13 +12,8 @@ The app is fully featured, including the use of different services, the ability 
 
 The requirements to run this app are:
 
-- `Xcode 13` or greater
-- `iOS 15` or greater
-
-The requirements for the architecture are:
-
-- `Xcode 11` or greater
-- `iOS 13` or greater
+- `Xcode 12` or greater
+- `iOS 14` or greater
 
 Although this architecture can be rethought for any other environment and even other platforms like Android using jetpack compose.
 
