@@ -27,7 +27,7 @@ Although this architecture can be rethought for any other environment and even o
 ReArch is an architecture thought to make applications easier to develop by removing a lot of the cumbersome boilerplate introduced by other architechtures like VIPER or MVVM where you need to create lots of files just to introduce a small feature and state management is all over the place.
 
 While coming up with this architecture, I realized it is pretty similar to the composable architecture which you can read more about here at
-![point-free](https://www.pointfree.co/collections/composable-architecture/swiftui-and-state-management/ep65-swiftui-and-state-management-part-1)
+[point-free](https://www.pointfree.co/collections/composable-architecture/swiftui-and-state-management/ep65-swiftui-and-state-management-part-1)
 
 # How does it work?
 
