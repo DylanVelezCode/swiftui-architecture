@@ -8,7 +8,7 @@
 import SwiftUI
 import PokeModels
 import PokeArch
-import SwURL
+import URLImage
 
 struct PokeDetailView: View, ViewConfigurable {
     let viewModel: PokeDetailViewModel
@@ -55,12 +55,24 @@ private extension PokeDetailView {
             .fill(LinearGradient(gradient: Gradient(colors: [.purple, .yellow, .blue]),
                                  startPoint: .top, endPoint: .bottom))
             .opacity(0.05)
-        RemoteImageView(url: viewModel.url!)
-            .imageProcessing({ image in
-                        return image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                    })
+        
+    URLImage(viewModel.url!) {
+        Image("pokeball")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+    } inProgress: { _ in
+        Image("pokeball")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+    } failure: { _,_  in
+        
+    }
+    content: { image in
+        // Downloaded image
+        image
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+    }
             .shadow(radius: 5)
             .frame(maxWidth: .infinity)
             .background(background)

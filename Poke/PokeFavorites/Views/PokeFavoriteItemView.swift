@@ -8,18 +8,30 @@
 import SwiftUI
 import PokeModels
 import PokeArch
-import SwURL
+import URLImage
 
 struct PokeFavoriteItemView: View, ViewConfigurable {
     let viewModel: PokeFavoriteItemViewModel
     var body: some View {
         HStack(alignment: .center) {
-            RemoteImageView(url: viewModel.url!)
-                .imageProcessing({ image in
-                            return image
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                        })
+            
+        URLImage(viewModel.url!) {
+            Image("pokeball")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+        } inProgress: { _ in
+            Image("pokeball")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+        } failure: { _,_  in
+            
+        }
+        content: { image in
+            // Downloaded image
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+        }
                 .frame(width: 50, height: 50)
             
             Text(viewModel.title)
